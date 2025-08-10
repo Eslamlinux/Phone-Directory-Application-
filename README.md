@@ -71,6 +71,5 @@ This project is licensed under the MIT License.
 
 If you have any questions, feel free to reach out to me on GitHub.
 
-  * [**Your GitHub Profile**](https://github.com/YourUsername)
+  * [**My GitHub Profile**](https://github.com/Eslamlinux)
 
-**Note**: Remember to replace **`YourUsername`** and **`Your-Repository-Name`** with your actual GitHub information.
