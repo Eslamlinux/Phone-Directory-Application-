@@ -22,7 +22,7 @@ To get this project up and running, follow these simple steps:
 
     ```bash
     git clone [https://github.com/Eslamlinux/Phone-Directory-Application-.git](https://github.com/Eslamlinux/Phone-Directory-Application-.git)
-    cd Your-Repository-Name
+    cd Phone-Directory-Application-
     ```
 
 2.  **Compile the Code**:
