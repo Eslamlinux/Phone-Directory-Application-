@@ -1,0 +1,97 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+void addNumber();
+void setup();
+void readList();
+
+
+
+int main(){
+
+ setup();
+    
+
+    return 0;
+}
+
+
+void setup(){
+    char chose = ' ';
+    cout << "Welcome to your phone directory book\n";
+        while(chose != 'q' && chose != 'Q'){
+        cout << "\n--------------------------------------------\n";
+        cout << "To add new contact press 1\n";
+        cout << "To see all contacts press 2\n";
+        cout << "To delete all contacts press D\n";
+        cout << "To exit press Q\n";
+        cout << "--------------------------------------------\n";
+        cout << "Your choice: ";
+        cin >> chose;
+        cin.ignore();
+    switch(chose){
+        case '1':
+        addNumber();
+        break;
+        case '2':
+        readList();
+        break;
+        case 'D':
+        case 'd':{
+        ofstream myData("myPhoneData.txt");
+        cout << "All contacts have been deleted.\n";
+        }
+        break;
+        case 'q':
+        case 'Q':
+        cout << "Goodbye!\n";
+        return;
+        default:
+        cout << "Invalid choice. Please try again.\n";
+        break;
+}
+}
+}
+
+void addNumber(){
+    string entry;
+    fstream myData;
+    cout << "enter your new content\n";
+    getline(cin,entry);
+    myData.open("myPhoneData.txt" , ios::out|ios::app );
+
+    if(myData.is_open()){
+    myData << entry << endl;
+    myData.close();
+    }
+    else{
+        cerr << "Error: Could not open the file.\n"; 
+    }
+
+}
+void readList(){
+    string wReturn;
+    fstream reading("myPhoneData.txt");
+    if(reading.is_open()){
+    if(reading.peek() == fstream::traits_type::eof()){
+        cout << "The directory is empty.\n";
+    }
+    else{
+    cout << "---------------------\n";
+    cout << "Phone Contacts:\n";
+    cout << "---------------------\n";
+    while ( getline(reading,wReturn) )
+    {
+        cout << wReturn << endl;
+    }
+    reading.close();
+    }
+        }
+else{
+    cerr << "Error: Could not open the file for reading.\n";
+
+}
+
+}
