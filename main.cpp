@@ -34,8 +34,14 @@ void setup(){
         break;
         case 'D':
         case 'd':{
+         string tempchose;
+         cout << "are you sure you want delete all data contact ? write 'del' to confirm \n";
+         cin >> tempchose;
+          if(tempchose == "del"){
         ofstream myData("myPhoneData.txt");
         cout << "All contacts have been deleted.\n";
+          }
+         break;
         }
         break;
         case 'q':
