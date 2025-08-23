@@ -7,16 +7,10 @@ void addNumber();
 void setup();
 void readList();
 
-
-
 int main(){
-
- setup();
-    
-
+ setup();   
     return 0;
 }
-
 
 void setup(){
     char chose = ' ';
@@ -91,6 +85,7 @@ void readList(){
     else{
     cout << "---------------------\n";
     cout << "Phone Contacts:\n";
+    cout << "Name  |  Number:\n";
     cout << "---------------------\n";
     while ( getline(reading,wReturn) )
     {
