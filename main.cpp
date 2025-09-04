@@ -8,7 +8,7 @@ void setup();
 void readList();
 
 int main(){
- setup();   
+ setup();
     return 0;
 }
 
@@ -34,8 +34,13 @@ void setup(){
         break;
         case 'D':
         case 'd':{
-        ofstream myData("myPhoneData.txt");
-        cout << "All contacts have been deleted.\n";
+        do{
+        cout << "Are you sure you want to delete all your contacts? If so, press Y or I fo ignore.\n";
+        cin >> chose;
+        if(chose == 'y'||chose == 'Y'){
+            ofstream myData("myPhoneData.txt");
+            cout << "All contacts have been deleted.\n";
+            break;
         }
         else if(chose == 'I'||chose == 'i'){
             break;
@@ -43,6 +48,7 @@ void setup(){
         else{
             cout << "wrong choice\n";
         }
+        }while(chose != 'q');
         }
         break;
         case 'q':
@@ -91,7 +97,8 @@ void readList(){
     }
     else{
     cout << "---------------------\n";
-    cout << "Phone Contacts:\n";
+    cout << "-- Phone Contacts: --\n";
+    cout << "---------------------\n";
     cout << "Name  |  Number:\n";
     cout << "---------------------\n";
     while ( getline(reading,wReturn) )
