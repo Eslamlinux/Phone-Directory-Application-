@@ -10,7 +10,10 @@ void readList();
 
 
 int main(){
- setup();   
+
+ setup();
+    
+
     return 0;
 }
 
