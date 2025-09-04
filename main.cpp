@@ -7,10 +7,13 @@ void addNumber();
 void setup();
 void readList();
 
+
+
 int main(){
- setup();
+ setup();   
     return 0;
 }
+
 
 void setup(){
     char chose = ' ';
