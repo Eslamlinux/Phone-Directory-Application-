@@ -1,9 +1,6 @@
-#include <src/main.h>
+#include "src/setup.h"
 
 int main(){
-
- setup();
-    
-
+    setup();
     return 0;
 }

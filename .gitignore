@@ -1,0 +1,6 @@
+# Ignore build artifacts
+obj/
+phone_directory
+
+# Ignore user-specific data if desired
+# data/myPhoneData.txt
