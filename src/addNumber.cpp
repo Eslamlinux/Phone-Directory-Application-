@@ -10,6 +10,10 @@ void addNumber() {
 
     std::cout << "Enter your new contact name:\n";
     std::getline(std::cin, entry_name);
+    if(entry_name.empty()) {
+        std::cout << "Name cannot be empty. Please try again.\n";
+        return;
+    }
 
     std::cout << "Enter your new contact number (must be 18 digits or less):\n";
     std::cin >> entry_num;
