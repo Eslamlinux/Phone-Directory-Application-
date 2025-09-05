@@ -6,7 +6,7 @@
 void readList() {
     std::string wReturn;
     std::fstream reading("data/myPhoneData.txt");
-
+    int counter = 1;
     if (reading.is_open()) {
         if (reading.peek() == std::fstream::traits_type::eof()) {
             std::cout << "The directory is empty.\n";
@@ -17,7 +17,8 @@ void readList() {
             std::cout << "Name  |  Number:\n";
             std::cout << "---------------------\n";
             while (std::getline(reading, wReturn)) {
-                std::cout << wReturn << std::endl;
+                std::cout << counter << " "<< wReturn << std::endl;
+                counter++;
             }
             reading.close();
         }
