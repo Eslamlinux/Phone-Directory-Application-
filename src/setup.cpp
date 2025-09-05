@@ -12,10 +12,10 @@ void setup() {
     cout << "Welcome to your phone directory book\n";
     while (chose != 'q' && chose != 'Q') {
         cout << "\n--------------------------------------------\n";
-        cout << "To add new contact press 1\n";
-        cout << "To see all contacts press 2\n";
-        cout << "To delete all contacts press D\n";
-        cout << "To exit press Q\n";
+        cout << "1: To add new contact press 1\n";
+        cout << "2: To see all contacts press 2\n";
+        cout << "3: To delete all contacts press D\n";
+        cout << "4: To exit press Q\n";
         cout << "--------------------------------------------\n";
         cout << "Your choice: ";
         cin >> chose;
@@ -30,10 +30,12 @@ void setup() {
                 break;
             case 'D':
             case 'd':
+            case '3':
                 deleteAllContacts();
                 break;
             case 'q':
             case 'Q':
+            case '4':
                 cout << "Goodbye!\n";
                 return;
             default:
