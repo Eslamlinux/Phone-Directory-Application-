@@ -17,7 +17,7 @@ void readList() {
             std::cout << "Name  |  Number:\n";
             std::cout << "---------------------\n";
             while (std::getline(reading, wReturn)) {
-                std::cout << counter << " "<< wReturn << std::endl;
+                std::cout << counter << ": "<< wReturn << std::endl;
                 counter++;
             }
             reading.close();
