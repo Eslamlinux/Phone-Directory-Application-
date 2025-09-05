@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 void readList() {
     std::string wReturn;
     std::fstream reading("data/myPhoneData.txt");
@@ -11,11 +10,12 @@ void readList() {
         if (reading.peek() == std::fstream::traits_type::eof()) {
             std::cout << "The directory is empty.\n";
         } else {
-            std::cout << "---------------------\n";
-            std::cout << "-- Phone Contacts: --\n";
-            std::cout << "---------------------\n";
-            std::cout << "Name  |  Number:\n";
-            std::cout << "---------------------\n";
+            system("clear");
+            std::cout << "----------------------\n";
+            std::cout << "-- Phone  Contacts: --\n";
+            std::cout << "----------------------\n";
+            std::cout << "   Name  |   Number  :\n";
+            std::cout << "----------------------\n";
             while (std::getline(reading, wReturn)) {
                 std::cout << counter << ": "<< wReturn << std::endl;
                 counter++;
