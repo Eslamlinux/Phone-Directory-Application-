@@ -39,6 +39,7 @@ void setup() {
                 readList();
                 break;
             case '3':
+                    system("clear");
                 cout << "Total contacts: " << countsize() - 1 << endl; //
                 break;
             case 'D':
