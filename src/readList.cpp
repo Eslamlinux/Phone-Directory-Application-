@@ -2,10 +2,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+int counter = 1;
 void readList() {
     std::string wReturn;
     std::fstream reading("data/myPhoneData.txt");
-    int counter = 1;
     if (reading.is_open()) {
         if (reading.peek() == std::fstream::traits_type::eof()) {
             system("clear");
@@ -18,7 +18,7 @@ void readList() {
             std::cout << "   Name  |   Number  :\n";
             std::cout << "----------------------\n";
             while (std::getline(reading, wReturn)) {
-                std::cout << counter << ": "<< wReturn << std::endl;
+                std::cout << counter << ": " << wReturn << std::endl;
                 counter++;
             }
             reading.close();
@@ -26,4 +26,7 @@ void readList() {
     } else {
         std::cerr << "Error: Could not open the file for reading.\n";
     }
+}
+int countsize() {
+    return counter;
 }

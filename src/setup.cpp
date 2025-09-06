@@ -23,8 +23,9 @@ void setup() {
          cout << "\n--------------------------------------------\n";
          cout << "1: To add new contact press 1\n";
          cout << "2: To see all contacts press 2\n";
-         cout << "3: To delete all contacts press D\n";
-         cout << "4: To exit press Q\n";
+         cout << "3: contact total numbers 3\n";
+         cout << "4: To delete all contacts press D\n";
+         cout << "5: To exit press Q\n";
          cout << "--------------------------------------------\n";
          cout << "Your choice: ";
          cin >> chose;
@@ -37,14 +38,17 @@ void setup() {
             case '2':
                 readList();
                 break;
+            case '3':
+                cout << "Total contacts: " << countsize() - 1 << endl; //
+                break;
             case 'D':
             case 'd':
-            case '3':
+            case '4':
                 deleteAllContacts();
                 break;
             case 'q':
             case 'Q':
-            case '4':
+            case '5':
                 system("clear");
                 cout << "Thank you for using our Phone Directory Console App.\nGoodbye!\n";
                 return;
