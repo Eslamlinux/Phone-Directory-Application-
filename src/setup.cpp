@@ -6,7 +6,7 @@
 #include <string>
 #include <limits> 
 using namespace std;
-int safebreak = 0;
+int safebreak = 1;
 void setup() {
     char chose = ' ';
     system("clear");
@@ -17,6 +17,7 @@ void setup() {
             cout << "\nPress Enter to continue...";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
          }
+         safebreak++;
          cout << "\n--------------------------------------------\n";
          cout << "1: To add new contact press 1\n";
          cout << "2: To see all contacts press 2\n";
@@ -27,7 +28,6 @@ void setup() {
          cin >> chose;
         
          cin.ignore(numeric_limits<streamsize>::max(), '\n');
-         safebreak++;
         switch (chose) {
             case '1':
                 addNumber();
