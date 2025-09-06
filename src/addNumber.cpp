@@ -18,12 +18,7 @@ void addNumber() {
 
     std::cout << "Enter your new contact number \n(must be 18 digits or less):\n";
     std::cin >> entry_num;
-    if(entry_num.empty()|| entry_num.find_first_not_of(' ') == std::string::npos) {
-        system("clear");
-        std::cout << "number cannot be empty. \nPlease try again.\n";
-        return;
-    }
-    else if (entry_num.size() > 18) {
+    if (entry_num.size() > 18) {
         std::cout << "You entered more than 18 digits. \nPlease try again.\n";
         // No recursive call to avoid stack issues, let the user choose again from the menu.
         return;
