@@ -4,7 +4,7 @@
 #include "deleteAllContacts.h"
 #include <iostream>
 #include <string>
-
+#include <limits> 
 using namespace std;
 
 void setup() {
@@ -21,7 +21,8 @@ void setup() {
          cout << "--------------------------------------------\n";
          cout << "Your choice: ";
          cin >> chose;
-         cin.ignore(); // To consume the newline character
+        
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         switch (chose) {
             case '1':
