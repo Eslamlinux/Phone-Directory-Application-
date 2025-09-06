@@ -22,12 +22,12 @@ void setup() {
          }
          safebreak++;
          cout << "\n--------------------------------------------\n";
-         cout << "1: To add new contact press 1\n";
-         cout << "2: To see all contacts press 2\n";
-         cout << "3: contact total numbers 3\n";
-         cout << "4: Delete one contact 4\n";
-         cout << "5: To delete all contacts press D\n";
-         cout << "+: To exit press Q\n";
+         cout << "1: To add new contact press    [1]\n";
+         cout << "2: To see all contacts press   [2]\n";
+         cout << "3: contact total numbers press [3]\n";
+         cout << "4: Delete one contact press    [4]\n";
+         cout << "5: To delete all contacts press[D]\n";
+         cout << "6: To exit press               [Q]\n";
          cout << "--------------------------------------------\n";
          cout << "Your choice: ";
          cin >> chose;
@@ -48,6 +48,10 @@ void setup() {
                 {
                     string ci;
                     system("clear");
+                    cout << "Be careful with that. You must add the contact name in the same way as before,\n" ;
+                    cout << "because if there are other names that start with the same name that you enter,\n";
+                    cout << "you will delete them all.\n";
+                    cout << "also if you add first character of the name and ther is another you will delete it too.\n";
                     cout << "Enter the exact name of the contact to delete:\n";
                     getline(cin, ci);
                     if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
@@ -61,10 +65,14 @@ void setup() {
                 }
                 break;
             case '5':
+            case 'D':
+            case 'd':
                 system("clear");
                 deleteAllContacts();
                 break;
             case '6':
+            case 'q':
+            case 'Q':
                 system("clear");
                 cout << "Thank you for using our Phone Directory Console App.\nGoodbye!\n";
                 return;

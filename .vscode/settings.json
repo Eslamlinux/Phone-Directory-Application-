@@ -4,6 +4,7 @@
         "string": "cpp",
         "*.txt": "cpp",
         "cstdlib": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "iostream": "cpp"
     }
 }
