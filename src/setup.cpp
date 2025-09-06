@@ -6,13 +6,17 @@
 #include <string>
 #include <limits> 
 using namespace std;
-
+int safebreak = 0;
 void setup() {
     char chose = ' ';
     system("clear");
     cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
          chose = ' ';
+         if(safebreak > 10) {
+            cout << "\nPress Enter to continue...";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         }
          cout << "\n--------------------------------------------\n";
          cout << "1: To add new contact press 1\n";
          cout << "2: To see all contacts press 2\n";
@@ -23,7 +27,7 @@ void setup() {
          cin >> chose;
         
          cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
+         safebreak++;
         switch (chose) {
             case '1':
                 addNumber();
