@@ -10,7 +10,7 @@ void addNumber() {
     system("clear");
     std::cout << "Enter your new contact name:\n";
     std::getline(std::cin, entry_name);
-    if(entry_name.empty()) {
+    if(entry_name.empty()|| entry_name.find_first_not_of(' ') == std::string::npos) {
         system("clear");
         std::cout << "Name cannot be empty. \nPlease try again.\n";
         return;

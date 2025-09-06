@@ -13,9 +13,9 @@ void setup() {
     cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
          chose = ' ';
-         if(safebreak > 10) {
+         if(safebreak > 100) {
             system("clear");
-            cout << "\nsome problem because you enter wrong choice...\n";
+            cout << "\nyou reached the maximum use \n ot there some problem because you enter wrong choice...\n";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             break;
          }
@@ -46,7 +46,7 @@ void setup() {
             case 'Q':
             case '4':
                 system("clear");
-                cout << "Goodbye!\n";
+                cout << "Thank you for using our Phone Directory Console App.\nGoodbye!\n";
                 return;
             default:
                 cout << "Invalid choice. Please try again.\n";
