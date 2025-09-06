@@ -8,6 +8,7 @@ void readList() {
     int counter = 1;
     if (reading.is_open()) {
         if (reading.peek() == std::fstream::traits_type::eof()) {
+            system("clear");
             std::cout << "The directory is empty.\n";
         } else {
             system("clear");

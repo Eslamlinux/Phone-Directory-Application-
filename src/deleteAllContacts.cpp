@@ -10,6 +10,7 @@ void deleteAllContacts() {
     std::cin >> chose;
     if (chose == 'y' || chose == 'Y') {
         std::ofstream myData("data/myPhoneData.txt"); // Opens in truncation mode
+        system("clear");
         std::cout << "All contacts have been deleted.\n";
     } else {
         system("clear");
