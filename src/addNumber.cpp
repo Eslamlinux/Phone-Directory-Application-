@@ -18,7 +18,7 @@ void addNumber() {
 
     std::cout << "Enter your new contact number \n(must be 18 digits or less):\n";
     std::cin >> entry_num;
-    if(entry_num.empty()|| entry_name.find_first_not_of(' ') == std::string::npos) {
+    if(entry_num.empty()|| entry_num.find_first_not_of(' ') == std::string::npos) {
         system("clear");
         std::cout << "number cannot be empty. \nPlease try again.\n";
         return;
