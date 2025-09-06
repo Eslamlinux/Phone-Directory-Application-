@@ -9,17 +9,19 @@ using namespace std;
 
 void setup() {
     char chose = ' ';
-    cout << "Welcome to your phone directory book\n";
+    system("clear");
+    cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
-        cout << "\n--------------------------------------------\n";
-        cout << "1: To add new contact press 1\n";
-        cout << "2: To see all contacts press 2\n";
-        cout << "3: To delete all contacts press D\n";
-        cout << "4: To exit press Q\n";
-        cout << "--------------------------------------------\n";
-        cout << "Your choice: ";
-        cin >> chose;
-        cin.ignore(); // To consume the newline character
+         chose = ' ';
+         cout << "\n--------------------------------------------\n";
+         cout << "1: To add new contact press 1\n";
+         cout << "2: To see all contacts press 2\n";
+         cout << "3: To delete all contacts press D\n";
+         cout << "4: To exit press Q\n";
+         cout << "--------------------------------------------\n";
+         cout << "Your choice: ";
+         cin >> chose;
+         cin.ignore(); // To consume the newline character
 
         switch (chose) {
             case '1':
@@ -36,6 +38,7 @@ void setup() {
             case 'q':
             case 'Q':
             case '4':
+                system("clear");
                 cout << "Goodbye!\n";
                 return;
             default:

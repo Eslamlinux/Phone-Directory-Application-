@@ -7,19 +7,20 @@ void addNumber() {
     std::string entry_name;
     std::string entry_num;
     std::fstream myData;
-
+    system("clear");
     std::cout << "Enter your new contact name:\n";
     std::getline(std::cin, entry_name);
     if(entry_name.empty()) {
-        std::cout << "Name cannot be empty. Please try again.\n";
+        system("clear");
+        std::cout << "Name cannot be empty. \nPlease try again.\n";
         return;
     }
 
-    std::cout << "Enter your new contact number (must be 18 digits or less):\n";
+    std::cout << "Enter your new contact number \n(must be 18 digits or less):\n";
     std::cin >> entry_num;
 
     if (entry_num.size() > 18) {
-        std::cout << "You entered more than 18 digits. Please try again.\n";
+        std::cout << "You entered more than 18 digits. \nPlease try again.\n";
         // No recursive call to avoid stack issues, let the user choose again from the menu.
         return;
     }
@@ -29,7 +30,8 @@ void addNumber() {
     if (myData.is_open()) {
         myData << entry_name << " | " << entry_num << std::endl;
         myData.close();
-        std::cout << "Contact added successfully.\n";
+        system("clear");
+        std::cout << "Contact (" << entry_name << " | " <<entry_num << ") added successfully.\n";
     } else {
         std::cerr << "Error: Could not open the file.\n";
     }
