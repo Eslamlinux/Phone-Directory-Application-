@@ -10,7 +10,7 @@ void DeleteContact(std::string ci) {
     std::fstream reading("data/myPhoneData.txt");
     std::string wReturn;
     while (std::getline(reading, wReturn)) {
-        if(ci.find_first_not_of() == getline(reading, wReturn)) {
+        if(ci.find_first_not_of(ci) == wReturn.find_first_not_of(wReturn)){
             continue;
         }
         else{

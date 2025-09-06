@@ -2,6 +2,7 @@
 #include "addNumber.h"
 #include "readList.h"
 #include "deleteAllContacts.h"
+#include "deletecontact.h"
 #include <iostream>
 #include <string>
 #include <limits> 
