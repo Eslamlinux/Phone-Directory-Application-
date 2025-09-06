@@ -14,8 +14,10 @@ void setup() {
     while (chose != 'q' && chose != 'Q') {
          chose = ' ';
          if(safebreak > 10) {
-            cout << "\nPress Enter to continue...";
+            system("clear");
+            cout << "\nsome problem because you enter wrong choice...\n";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            break;
          }
          safebreak++;
          cout << "\n--------------------------------------------\n";
