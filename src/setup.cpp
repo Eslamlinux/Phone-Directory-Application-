@@ -60,14 +60,11 @@ void setup() {
                     cout << "If the contact existed, it has been deleted.\n";
                 }
                 break;
-            case 'D':
-            case 'd':
             case '5':
+                system("clear");
                 deleteAllContacts();
                 break;
-            case 'q':
-            case 'Q':
-            case '5':
+            case '6':
                 system("clear");
                 cout << "Thank you for using our Phone Directory Console App.\nGoodbye!\n";
                 return;
