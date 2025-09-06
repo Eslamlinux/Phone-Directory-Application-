@@ -25,8 +25,9 @@ void setup() {
          cout << "1: To add new contact press 1\n";
          cout << "2: To see all contacts press 2\n";
          cout << "3: contact total numbers 3\n";
-         cout << "4: To delete all contacts press D\n";
-         cout << "5: To exit press Q\n";
+         cout << "4: Delete one contact 4\n";
+         cout << "5: To delete all contacts press D\n";
+         cout << "+: To exit press Q\n";
          cout << "--------------------------------------------\n";
          cout << "Your choice: ";
          cin >> chose;
@@ -43,9 +44,25 @@ void setup() {
                     system("clear");
                 cout << "Total contacts: " << countsize() - 1 << endl; //
                 break;
+            case '4':
+                {
+                    string ci;
+                    system("clear");
+                    cout << "Enter the exact name of the contact to delete:\n";
+                    getline(cin, ci);
+                    if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
+                        system("clear");
+                        cout << "Name cannot be empty. \nPlease try again.\n";
+                        break;
+                    }
+                    DeleteContact(ci);
+                    system("clear");
+                    cout << "If the contact existed, it has been deleted.\n";
+                }
+                break;
             case 'D':
             case 'd':
-            case '4':
+            case '5':
                 deleteAllContacts();
                 break;
             case 'q':
