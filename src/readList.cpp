@@ -17,6 +17,7 @@ void readList() {
             std::cout << "----------------------\n";
             std::cout << "   Name  |   Number  :\n";
             std::cout << "----------------------\n";
+            counter = 1;
             while (std::getline(reading, wReturn)) {
                 std::cout << counter << ": " << wReturn << std::endl;
                 counter++;
@@ -28,5 +29,12 @@ void readList() {
     }
 }
 int countsize() {
+    std::fstream reading("data/myPhoneData.txt");
+    std::string wReturn;
+    counter = 1; // Reset counter to 1 each time countsize is called
+    while (std::getline(reading, wReturn)) {
+            
+                counter++;
+            }
     return counter;
 }
