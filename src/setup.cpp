@@ -24,7 +24,7 @@ void setup() {
          cout << "\n--------------------------------------------\n";
          cout << "1: To add new contact      press[1]\n";
          cout << "2: To see all contacts     press[2]\n";
-         cout << "3: contact total numbers   press[3]\n";
+         cout << "3: Total contact           press[3]\n";
          cout << "4: Delete one contact      press[4]\n";
          cout << "5: To delete all contacts  press[D]\n";
          cout << "6: To exit                 press[Q]\n";
