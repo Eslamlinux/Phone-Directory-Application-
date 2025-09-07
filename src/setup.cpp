@@ -6,33 +6,32 @@
 #include <iostream>
 #include <string>
 #include <limits> 
-using namespace std;
 int safebreak = 1;
 void setup() {
     char chose = ' ';
     system("clear");
-    cout << "Welcome to your phone directory book";
+    std::cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
          chose = ' ';
          if(safebreak > 100) {
             system("clear");
-            cout << "\nyou reached the maximum use \n ot there some problem because you enter wrong choice...\n";
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            std::cout << "\nyou reached the maximum use \n ot there some problem because you enter wrong choice...\n";
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
          }
          safebreak++;
-         cout << "\n--------------------------------------------\n";
-         cout << "1: To add new contact      press[1]\n";
-         cout << "2: To see all contacts     press[2]\n";
-         cout << "3: Total contact           press[3]\n";
-         cout << "4: Delete one contact      press[4]\n";
-         cout << "5: To delete all contacts  press[D]\n";
-         cout << "6: To exit                 press[Q]\n";
-         cout << "--------------------------------------------\n";
-         cout << "Your choice: ";
-         cin >> chose;
+         std::cout << "\n--------------------------------------------\n";
+         std::cout << "1: To add new contact      press[1]\n";
+         std::cout << "2: To see all contacts     press[2]\n";
+         std::cout << "3: Total contact           press[3]\n";
+         std::cout << "4: Delete one contact      press[4]\n";
+         std::cout << "5: To delete all contacts  press[D]\n";
+         std::cout << "6: To exit                 press[Q]\n";
+         std::cout << "--------------------------------------------\n";
+         std::cout << "Your choice: ";
+         std::cin >> chose;
         
-         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         switch (chose) {
             case '1':
                 addNumber();
@@ -42,30 +41,41 @@ void setup() {
                 break;
             case '3':
                     system("clear");
-                cout << "Total contacts: " << countsize() - 1 << endl; //
+                std::cout << "Total contacts: " << countsize() - 1 << std::endl; //
                 break;
             case '4':
                 {
-                    string ci;
+                    std::string ci;
                     system("clear");
-                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
-                    cout << "|*| *** Be careful with that. ***                             |*|\n";
-                    cout << "|*| You must add the contact name in the same way as before,  |*|\n" ;
-                    cout << "|*| because if there are other names that start with the      |*|\n";
-                    cout << "|*| same name that you enter, you will delete them all.       |*|\n";
-                    cout << "|*| also if you add first character of the name and ther      |*|\n"; 
-                    cout << "|*| is another you will delete it too                         |*|\n";
-                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
-                    cout << "\nEnter the exact name of the contact to delete:\n";
-                    getline(cin, ci);
+                    std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
+                    std::cout << "|*| *** Be careful with that. ***                             |*|\n";
+                    std::cout << "|*| You must add the contact name in the same way as before,  |*|\n" ;
+                    std::cout << "|*| because if there are other names that start with the      |*|\n";
+                    std::cout << "|*| same name that you enter, you will delete them all.       |*|\n";
+                    std::cout << "|*| also if you add first character of the name and ther      |*|\n"; 
+                    std::cout << "|*| is another you will delete it too                         |*|\n";
+                    std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
+                    std::cout << "\nEnter the exact name of the contact to delete:\n";
+                    getline(std::cin, ci);
                     if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
                         system("clear");
-                        cout << "Name cannot be empty. \nPlease try again.\n";
+                        std::cout << "Name cannot be empty. \nPlease try again.\n";
                         break;
                     }
-                    DeleteContact(ci);
                     system("clear");
-                    cout << "If the contact existed, it has been deleted.\n";
+                    std::cout << "Are you sure you want to delete " << ci << " ? Press 'Y' to continue or 'N' to ignore. \n";
+                    std::cin >> chose;
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    if(chose == 'y' || chose == 'Y'){
+                        DeleteContact(ci);
+                        system("clear");
+                        std::cout << "If the contact existed, it has been deleted.\n";
+                    }
+                    else{
+                        system("clear");
+                        std::cout << "Operation cancelled. No contacts were deleted.\n";
+                        break;
+                    }
                 }
                 break;
             case '5':
@@ -78,13 +88,13 @@ void setup() {
             case 'q':
             case 'Q':
                 system("clear");
-                cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
-                cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
-                cout << "|*| Goodbye !                                               |*| \n";
-                cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
+                std::cout << "|*| Goodbye !                                               |*| \n";
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 return;
             default:
-                cout << "Invalid choice. Please try again.\n";
+                std::cout << "Invalid choice. Please try again.\n";
                 break;
         }
     }
