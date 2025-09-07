@@ -48,14 +48,14 @@ void setup() {
                 {
                     string ci;
                     system("clear");
-                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
                     cout << "|*| *** Be careful with that. ***                             |*|\n";
                     cout << "|*| You must add the contact name in the same way as before,  |*|\n" ;
                     cout << "|*| because if there are other names that start with the      |*|\n";
                     cout << "|*| same name that you enter, you will delete them all.       |*|\n";
                     cout << "|*| also if you add first character of the name and ther      |*|\n"; 
-                    cout << "|*| is another you will delete it too                         |*|.\n";
-                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                    cout << "|*| is another you will delete it too                         |*|\n";
+                    cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
                     cout << "\nEnter the exact name of the contact to delete:\n";
                     getline(cin, ci);
                     if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
