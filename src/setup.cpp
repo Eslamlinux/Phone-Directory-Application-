@@ -63,7 +63,7 @@ void setup() {
                         break;
                     }
                     system("clear");
-                    std::cout << "Are you sure you want to delete " << ci << " ? Press 'Y' to continue or 'N' to ignore. \n";
+                    std::cout << "Are you sure you want to delete all (" << ci << ") data? Press 'Y' to continue or 'N' to ignore. \n";
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
