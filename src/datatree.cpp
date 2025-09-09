@@ -1,31 +1,22 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include "datatree.h"
 // دالة التحكم في التعديل والحذف والبحث باستخدام الباينري تري
 
-class Node{
-    public:
-    std::string data;
-    Node* left;
-    Node* right;
-    Node(std::string val){
+Node::Node(std::string val){
         data = val;
         left = NULL;
         right = NULL;
-    }
-};
+    };
 
-class filetree{
-    public:
-    Node *root;
-    filetree(){
+    filetree::filetree(){
         root = NULL;
     }
-    bool isEmpty(Node* r){
+    bool filetree::isEmpty(Node* r){
         return r == NULL;
     }
-    Node* To_insert(Node* r,std::string val){
+    Node* filetree::To_insert(Node* r,std::string val){
         Node *newNode = new Node(val);
         if(isEmpty(r)){
             r = newNode;
@@ -39,10 +30,10 @@ class filetree{
         return r;
                 }
 
-    void insert(std::string val){
+    void filetree::insert(std::string val){
         root = To_insert(root,val);
     }
-    void print_preorder(Node* r){
+    void filetree::print_preorder(Node* r){
         if(isEmpty(r)){
             return;
         }
@@ -52,7 +43,7 @@ class filetree{
             print_preorder(r->right);
         }
     }    
-    void print_inorder(Node* r){
+    void filetree::print_inorder(Node* r){
         if(r == NULL){
             return;
         }
@@ -62,7 +53,7 @@ class filetree{
             print_inorder(r->right);
         }
     }
-    void print_postorder(Node* r){
+    void filetree::print_postorder(Node* r){
         if(isEmpty(r)){
             return;
         }
@@ -72,4 +63,3 @@ class filetree{
             std::cout << r->data << " ";
         }
     }
-};

@@ -3,11 +3,17 @@
 #include "readList.h"
 #include "deleteAllContacts.h"
 #include "deletecontact.h"
+#include "datatree.h"
 #include <iostream>
 #include <string>
 #include <limits> 
+
+filetree tree
+tree.insert("example"); 
+
 int safebreak = 1;
 void setup() {
+
     char chose = ' ';
     system("clear");
     std::cout << "Welcome to your phone directory book";
