@@ -42,6 +42,16 @@ class filetree{
     void insert(std::string val){
         root = To_insert(root,val);
     }
+    void print_preorder(Node* r){
+        if(isEmpty(r)){
+            return;
+        }
+        else{
+            std::cout << r->data << " ";
+            print_preorder(r->left);
+            print_preorder(r->right);
+        }
+    }    
     void print_inorder(Node* r){
         if(r == NULL){
             return;
@@ -52,5 +62,14 @@ class filetree{
             print_inorder(r->right);
         }
     }
-    
+    void print_postorder(Node* r){
+        if(isEmpty(r)){
+            return;
+        }
+        else{
+            print_postorder(r->left);
+            print_postorder(r->right);
+            std::cout << r->data << " ";
+        }
+    }
 };
