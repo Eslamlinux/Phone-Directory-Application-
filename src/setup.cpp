@@ -1,15 +1,13 @@
+#include <iostream>
+#include <string>
+#include <limits> 
 #include "setup.h"
 #include "addNumber.h"
 #include "readList.h"
 #include "deleteAllContacts.h"
 #include "deletecontact.h"
 #include "datatree.h"
-#include <iostream>
-#include <string>
-#include <limits> 
 
-filetree tree
-tree.insert("example"); 
 
 int safebreak = 1;
 void setup() {

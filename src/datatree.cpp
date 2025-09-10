@@ -1,6 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <string>
 #include "datatree.h"
 // دالة التحكم في التعديل والحذف والبحث باستخدام الباينري تري
 
@@ -10,12 +7,17 @@ Node::Node(std::string val){
         right = NULL;
     };
 
+
     filetree::filetree(){
         root = NULL;
     }
-    bool filetree::isEmpty(Node* r){
+
+
+    const bool filetree::isEmpty(Node* r){
         return r == NULL;
     }
+
+
     Node* filetree::To_insert(Node* r,std::string val){
         Node *newNode = new Node(val);
         if(isEmpty(r)){
@@ -30,9 +32,11 @@ Node::Node(std::string val){
         return r;
                 }
 
-    void filetree::insert(std::string val){
+    void filetree::To_insert(std::string val){
         root = To_insert(root,val);
     }
+
+
     void filetree::print_preorder(Node* r){
         if(isEmpty(r)){
             return;
@@ -42,9 +46,11 @@ Node::Node(std::string val){
             print_preorder(r->left);
             print_preorder(r->right);
         }
-    }    
+    }
+    
+    
     void filetree::print_inorder(Node* r){
-        if(r == NULL){
+        if(isEmpty(r)){
             return;
         }
         else{
@@ -53,6 +59,8 @@ Node::Node(std::string val){
             print_inorder(r->right);
         }
     }
+
+    
     void filetree::print_postorder(Node* r){
         if(isEmpty(r)){
             return;
