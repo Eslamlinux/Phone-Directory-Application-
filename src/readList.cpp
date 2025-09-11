@@ -1,9 +1,19 @@
 #include "readList.h"
+#include "datatree.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 int counter = 1;
 void readList() {
+
+
+    // ############################
+    std::cout << "starting readList function frome tree \n"; // 
+    Manage_Data_Tree.print_preorder(Manage_Data_Tree.root);
+    std::cout << "end of readList function frome tree \n"; //
+    // ############################
+
+
     std::string wReturn;
     std::fstream reading("data/myPhoneData.txt");
     if (reading.is_open()) {
