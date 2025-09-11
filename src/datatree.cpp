@@ -41,25 +41,7 @@ Node::Node(std::string val){
         root = To_insert(root,val);
     }
 
-    void filetree::Save(Node* r){
-        std::ofstream file;
-        file.open("data/myPhoneData.txt");
-        std::string To_Run_Time_return ="";
 
-            if(isEmpty(r)){
-                return;
-            }
-
-            else{
-                To_Run_Time_return = r->data + " ";
-                Save(r->left);
-                Save(r->right);
-            }
-
-            file << To_Run_Time_return;
-            file.close();
-    }
-    
     void filetree::print_preorder(Node* r){
         if(isEmpty(r)){
             return;
@@ -96,3 +78,23 @@ Node::Node(std::string val){
         }
     }
 
+    void filetree::Save(Node* r){
+        
+        if(isEmpty(r)){
+            return;
+        }
+        
+        std::ofstream file;
+        file.open("data/myPhoneData.txt");
+        std::string To_Run_Time_return ="";
+
+        else{
+            To_Run_Time_return = r->data + " ";
+            Save(r->left);
+            Save(r->right);
+        }
+
+            file << To_Run_Time_return;
+            file.close();
+    }
+    
