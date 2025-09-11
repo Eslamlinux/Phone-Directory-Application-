@@ -18,10 +18,10 @@ void readList() {
     std::fstream reading("data/myPhoneData.txt");
     if (reading.is_open()) {
         if (reading.peek() == std::fstream::traits_type::eof()) {
-            system("clear");
+            // system("clear");
             std::cout << "The directory is empty.\n";
         } else {
-            system("clear");
+            // system("clear");
             std::cout << "----------------------\n";
             std::cout << "-- Phone  Contacts: --\n";
             std::cout << "----------------------\n";

@@ -18,11 +18,11 @@ void setup() {
 
         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root)) {
                 // Load existing contacts into the binary tree
-            std::ifstream file("data/myPhoneData.txt");
+            std::ifstream file;
             file.open("data/myPhoneData.txt", std::ios::app);
             std::string line ="";
                 while(std::getline(file, line)) {    
-            Manage_Data_Tree.To_insert(line); // Insert each line into the binary tree
+            Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
         }
         file.close();
     }
