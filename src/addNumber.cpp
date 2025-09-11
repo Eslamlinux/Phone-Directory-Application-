@@ -1,4 +1,5 @@
 #include "addNumber.h"
+#include "datatree.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -23,15 +24,18 @@ void addNumber() {
         // No recursive call to avoid stack issues, let the user choose again from the menu.
         return;
     }
-
-    myData.open("data/myPhoneData.txt", std::ios::out | std::ios::app);
-
-    if (myData.is_open()) {
-        myData << entry_name << " | " << entry_num << std::endl;
-        myData.close();
+        std::string entry_check = entry_name + " | " + entry_num;
+        Manage_Data_Tree.To_insert(entry_check);
         system("clear");
         std::cout << "Contact (" << entry_name << " | " <<entry_num << ") added successfully.\n";
-    } else {
-        std::cerr << "Error: Could not open the file.\n";
-    }
+
+    // myData.open("data/myPhoneData.txt", std::ios::out | std::ios::app);
+    // if (myData.is_open()) {
+    //     myData << entry_name << " | " << entry_num << std::endl;
+    //     myData.close();
+    //     system("clear");
+    //     std::cout << "Contact (" << entry_name << " | " <<entry_num << ") added successfully.\n";
+    // } else {
+    //     std::cerr << "Error: Could not open the file.\n";
+    // }
 }

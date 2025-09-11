@@ -16,8 +16,8 @@ void setup() {
     std::cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
 
-        if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root)) {
-                // Load existing contacts into the binary tree
+        if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
+        {
             std::ifstream file;
             file.open("data/myPhoneData.txt", std::ios::app);
             std::string line ="";
@@ -25,7 +25,7 @@ void setup() {
             Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
             }
         file.close();
-    }
+        }
     // End of loading contacts into the binary tree
 
 
