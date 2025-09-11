@@ -107,7 +107,7 @@ Node::Node(std::string val){
         Save(root);
     }
     
-    std::string SearchInsideTree(Node* r, const std::string& val) {
+    std::string filetree::SearchInsideTree(Node* r, const std::string& val) {
         if (r == nullptr) {
             return val + " Not found"; // Not found
         }
@@ -121,3 +121,6 @@ Node::Node(std::string val){
             return SearchInsideTree(r->right, val); // Search in right subtree
         }
     } 
+    std::string filetree::SearchInsideTree(const std::string& val) {
+        return SearchInsideTree(Manage_Data_Tree.root, val);
+    }

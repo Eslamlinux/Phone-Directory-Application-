@@ -20,6 +20,9 @@ class filetree{
     void To_insert(std::string val);
     void Save(Node* r);
     void SaveToFile();
+    std::string SearchInsideTree(Node* r, const std::string& val);
+    std::string SearchInsideTree(const std::string& val);
+
     void print_preorder(Node* r);
     void print_inorder(Node* r);
     void print_postorder(Node* r);

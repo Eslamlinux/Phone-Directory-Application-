@@ -45,7 +45,8 @@ void setup() {
          std::cout << "4: Delete one contact      press[4]\n";
          std::cout << "5: To delete all contacts  press[D]\n";
          std::cout << "6: Save last changes       press[S]\n";
-         std::cout << "7: To exit                 press[Q]\n";
+         std::cout << "7: To search contact       press[F]\n";
+         std::cout << "8: To exit                 press[Q]\n";
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> chose;
@@ -113,6 +114,24 @@ void setup() {
             break;
 
             case '7':
+            case 'f':
+            case 'F':
+                {
+                    std::string ci;
+                    system("clear");
+                    std::cout << "Enter the exact name of the contact to search:\n";
+                    getline(std::cin, ci);
+                    if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
+                        system("clear");
+                        std::cout << "Name cannot be empty. \nPlease try again.\n";
+                        break;
+                    }
+                    std::string result = Manage_Data_Tree.SearchInTree(ci);
+                    system("clear");
+                    std::cout << result << std::endl;
+                }
+                break;
+            case '8':
             case 'q':
             case 'Q':
                 system("clear");
