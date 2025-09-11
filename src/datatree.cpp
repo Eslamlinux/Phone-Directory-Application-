@@ -1,6 +1,10 @@
 #include "datatree.h"
 #include <iostream>
 
+filetree Manage_Data_Tree;
+
+
+
 Node::Node(std::string val){
         data = val;
         left = nullptr;
@@ -71,3 +75,4 @@ Node::Node(std::string val){
             std::cout << r->data << " ";
         }
     }
+

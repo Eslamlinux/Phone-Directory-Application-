@@ -9,7 +9,6 @@
 #include "deletecontact.h"
 #include "datatree.h"
 
-
 int safebreak = 1;
 void setup() {
     char chose = ' ';
