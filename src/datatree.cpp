@@ -41,8 +41,20 @@ Node::Node(std::string val){
     }
 
 
+    // std::string filetree::To_Run_Time_return(Node* r){
+    //     std::string temp = "";
+    //     if(isEmpty(r)){
+    //         return temp;
+    //     }
+    //     else{
+    //         temp = r->data + " ";
+    //         print_preorder(r->left);
+    //         print_preorder(r->right);
+    //     }
+    //     return temp;
+    // }
+    
     void filetree::print_preorder(Node* r){
-        
         if(isEmpty(r)){
             return;
         }
@@ -51,6 +63,7 @@ Node::Node(std::string val){
             print_preorder(r->left);
             print_preorder(r->right);
         }
+
     }
     
     
