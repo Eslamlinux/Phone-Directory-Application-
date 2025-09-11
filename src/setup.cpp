@@ -12,29 +12,30 @@
 
 int safebreak = 1;
 void setup() {
+    char chose = ' ';
+    system("clear");
+    std::cout << "Welcome to your phone directory book";
+    while (chose != 'q' && chose != 'Q') {
 
-
-    // Load existing contacts into the binary tree
-    std::ifstream file("data/myPhoneData.txt");
-    file.open("data/myPhoneData.txt", std::ios::app);
-    if(file.is_open()) {
-        while(!file.eof()) {
+        if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root)) {
+                // Load existing contacts into the binary tree
+            std::ifstream file("data/myPhoneData.txt");
+            file.open("data/myPhoneData.txt", std::ios::app);
+            if(file.is_open()) {
+            while(!file.eof()) {
             std::string line;
             std::getline(file, line);
             if(!line.empty()) {
-                Manage_Data_Tree.To_insert(line); // Insert each line into the binary tree
+            Manage_Data_Tree.To_insert(line); // Insert each line into the binary tree
             }
         }
         file.close();
     }
     // End of loading contacts into the binary tree
 
-    
 
-    char chose = ' ';
-    system("clear");
-    std::cout << "Welcome to your phone directory book";
-    while (chose != 'q' && chose != 'Q') {
+
+        }
          chose = ' ';
          if(safebreak > 100) {
             system("clear");
