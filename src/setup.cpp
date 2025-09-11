@@ -20,21 +20,15 @@ void setup() {
                 // Load existing contacts into the binary tree
             std::ifstream file("data/myPhoneData.txt");
             file.open("data/myPhoneData.txt", std::ios::app);
-            if(file.is_open()) {
-            while(!file.eof()) {
-            std::string line;
-            std::getline(file, line);
-            if(!line.empty()) {
+            std::string line ="";
+                while(std::getline(file, line)) {    
             Manage_Data_Tree.To_insert(line); // Insert each line into the binary tree
-            }
         }
         file.close();
     }
     // End of loading contacts into the binary tree
 
 
-
-        }
          chose = ' ';
          if(safebreak > 100) {
             system("clear");
