@@ -1,20 +1,20 @@
 #include "datatree.h"
-// دالة التحكم في التعديل والحذف والبحث باستخدام الباينري تري
+#include <iostream>
 
 Node::Node(std::string val){
         data = val;
-        left = NULL;
-        right = NULL;
+        left = nullptr;
+        right = nullptr;
     };
 
 
     filetree::filetree(){
-        root = NULL;
+        root = nullptr;
     }
 
 
     const bool filetree::isEmpty(Node* r){
-        return r == NULL;
+        return r == nullptr;
     }
 
 

@@ -1,4 +1,4 @@
-
+#include <string>
 
 class Node{
     public:
@@ -19,3 +19,5 @@ class filetree{
     void print_inorder(Node* r);
     void print_postorder(Node* r);
 };
+
+filetree Manage_Data_Tree;
