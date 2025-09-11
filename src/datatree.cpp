@@ -79,22 +79,31 @@ Node::Node(std::string val){
     }
 
     void filetree::Save(Node* r){
-        
         if(isEmpty(r)){
             return;
         }
         
         std::ofstream file;
-        file.open("data/myPhoneData.txt");
-        std::string To_Run_Time_return ="";
-
-        else{
-            To_Run_Time_return = r->data + " ";
+        file.open("data/myPhoneData.txt", std::ios::app);
+        
+        if(file.is_open()) {
+            file << r->data;
+            file.close();
+            
             Save(r->left);
             Save(r->right);
         }
+    }
 
-            file << To_Run_Time_return;
+    void filetree::SaveToFile(){
+        // Clear the file first
+        std::ofstream file;
+        file.open("data/myPhoneData.txt", std::ios::trunc);
+        if(file.is_open()) {
             file.close();
+        }
+        
+        // Save all data using in-order traversal
+        Save(root);
     }
     

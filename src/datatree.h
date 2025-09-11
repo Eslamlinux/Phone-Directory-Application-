@@ -18,7 +18,8 @@ class filetree{
     const bool isEmpty(Node* r);
     Node* To_insert(Node* r,std::string val);
     void To_insert(std::string val);
-    void Save();
+    void Save(Node* r);
+    void SaveToFile();
     void print_preorder(Node* r);
     void print_inorder(Node* r);
     void print_postorder(Node* r);
