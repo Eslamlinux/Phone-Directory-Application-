@@ -8,7 +8,7 @@
 #include "deleteAllContacts.h"
 #include "deletecontact.h"
 #include "datatree.h"
-#include "Save_and_exit.h"
+
 
 int safebreak = 1;
 void setup() {
@@ -44,7 +44,8 @@ void setup() {
          std::cout << "3: Total contact           press[3]\n";
          std::cout << "4: Delete one contact      press[4]\n";
          std::cout << "5: To delete all contacts  press[D]\n";
-         std::cout << "6: To exit                 press[Q]\n";
+         std::cout << "6: Save last changes       press[S]\n";
+         std::cout << "7: To exit                 press[Q]\n";
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> chose;
@@ -102,7 +103,16 @@ void setup() {
                 system("clear");
                 deleteAllContacts();
                 break;
+
             case '6':
+            case 's':
+            case 'S':
+            Manage_Data_Tree.SaveToFile();
+            system("clear");
+            std::cout << "All changes have been saved successfully.\n";
+            break;
+
+            case '7':
             case 'q':
             case 'Q':
                 system("clear");

@@ -86,6 +86,7 @@ Node::Node(std::string val){
         
         std::ofstream file;
         file.open("data/myPhoneData.txt", std::ios::app);
+
         if(file.is_open()) {
             file << r->data;
             file.close();
@@ -106,3 +107,17 @@ Node::Node(std::string val){
         Save(root);
     }
     
+    std::string SearchInsideTree(Node* r, const std::string& val) {
+        if (r == nullptr) {
+            return val + " Not found"; // Not found
+        }
+        if (r->data == val) {
+            return r->data; // Found
+        }
+        else if (val < r->data) {
+            return SearchInsideTree(r->left, val); // Search in left subtree
+        }
+        else {
+            return SearchInsideTree(r->right, val); // Search in right subtree
+        }
+    } 
