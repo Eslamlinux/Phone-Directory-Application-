@@ -110,7 +110,7 @@ void setup() {
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| Goodbye !                                               |*| \n";
                 std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
-                save_and_exit();
+                Manage_Data_Tree.Save(Manage_Data_Tree.root);
                 return;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
