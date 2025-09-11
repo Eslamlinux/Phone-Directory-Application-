@@ -8,6 +8,7 @@
 #include "deleteAllContacts.h"
 #include "deletecontact.h"
 #include "datatree.h"
+#include "Save_and_exit.h"
 
 int safebreak = 1;
 void setup() {
@@ -109,6 +110,7 @@ void setup() {
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| Goodbye !                                               |*| \n";
                 std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                save_and_exit()
                 return;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
