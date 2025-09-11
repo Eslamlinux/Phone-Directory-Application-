@@ -111,7 +111,7 @@ Node::Node(std::string val){
         if (r == nullptr) {
             return val + " Not found"; // Not found
         }
-        if (r->data == val) {
+        if (r->data.find_first_of(val) != std::string::npos) {
             return r->data; // Found
         }
         else if (val < r->data) {

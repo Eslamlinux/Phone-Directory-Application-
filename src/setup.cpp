@@ -126,7 +126,7 @@ void setup() {
                         std::cout << "Name cannot be empty. \nPlease try again.\n";
                         break;
                     }
-                    std::string result = Manage_Data_Tree.SearchInTree(ci);
+                    std::string result = Manage_Data_Tree.SearchInsideTree(ci);
                     system("clear");
                     std::cout << result << std::endl;
                 }
