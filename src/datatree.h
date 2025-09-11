@@ -1,4 +1,7 @@
+
+#include <iostream>
 #include <string>
+
 
 class Node{
     public:
@@ -19,4 +22,4 @@ class filetree{
     void print_inorder(Node* r);
     void print_postorder(Node* r);
 };
-extern BinarySearchTree<PhoneContact> Manage_Data_Tree;
+extern filetree Manage_Data_Tree;
