@@ -41,18 +41,21 @@ Node::Node(std::string val){
         root = To_insert(root,val);
     }
 
-    void save(Node* r){
+    void filetree::Save(Node* r){
         std::ofstream file;
         file.open("data/myPhoneData.txt");
-            std::string To_Run_Time_return ="";
+        std::string To_Run_Time_return ="";
+
             if(isEmpty(r)){
                 return;
             }
+
             else{
                 To_Run_Time_return = r->data + " ";
-                print_preorder(r->left);
-                print_preorder(r->right);
+                Save(r->left);
+                Save(r->right);
             }
+
             file << To_Run_Time_return;
             file.close();
     }
