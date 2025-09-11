@@ -1,5 +1,6 @@
 #include "datatree.h"
 #include <iostream>
+#include <fstream>
 
 filetree Manage_Data_Tree;
 
@@ -40,19 +41,21 @@ Node::Node(std::string val){
         root = To_insert(root,val);
     }
 
-
-    // std::string filetree::To_Run_Time_return(Node* r){
-    //     std::string temp = "";
-    //     if(isEmpty(r)){
-    //         return temp;
-    //     }
-    //     else{
-    //         temp = r->data + " ";
-    //         print_preorder(r->left);
-    //         print_preorder(r->right);
-    //     }
-    //     return temp;
-    // }
+    void save(Node* r){
+        std::ofstream file;
+        file.open("data/myPhoneData.txt");
+            std::string To_Run_Time_return ="";
+            if(isEmpty(r)){
+                return;
+            }
+            else{
+                To_Run_Time_return = r->data + " ";
+                print_preorder(r->left);
+                print_preorder(r->right);
+            }
+            file << To_Run_Time_return;
+            file.close();
+    }
     
     void filetree::print_preorder(Node* r){
         if(isEmpty(r)){
