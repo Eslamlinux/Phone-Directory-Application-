@@ -19,4 +19,4 @@ class filetree{
     void print_inorder(Node* r);
     void print_postorder(Node* r);
 };
-extern Manage_Data_Tree;
+extern BinarySearchTree<PhoneContact> Manage_Data_Tree;
