@@ -42,15 +42,14 @@ Node::Node(std::string val){
 
 
     void filetree::print_preorder(Node* r){
-        int ListCounter = 1;
+        
         if(isEmpty(r)){
             return;
         }
         else{
-            std::cout << ListCounter << ": " << r->data << " ";
+            std::cout << r->data << " ";
             print_preorder(r->left);
             print_preorder(r->right);
-            ListCounter++;
         }
     }
     
