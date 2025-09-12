@@ -207,7 +207,7 @@ Node::Node(std::string val){
         return nullptr;
     }
     Node* filetree::Delete_All_Contacts() {
-        root = Delete_All_Contacts(root);
+         Delete_All_Contacts(Manage_Data_Tree.root);
         return root;
     }
 
