@@ -11,6 +11,7 @@ void deleteAllContacts() {
     std::cin >> chose;
     if (chose == 'y' || chose == 'Y') {
         Manage_Data_Tree.Delete_All_Contacts();
+        Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
         system("clear");
         std::cout << "All contacts have been deleted.\n";
     } else {

@@ -91,7 +91,9 @@ void setup() {
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
-                        Manage_Data_Tree.root = Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
+                        Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
+                        Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+
                         system("clear");
                         std::cout <<  "Contact deleted successfully.\n";
                     }
