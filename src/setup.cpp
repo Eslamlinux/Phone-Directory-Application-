@@ -9,12 +9,21 @@
 #include "datatree.h"
 
 
+long int Count_Data = 0;
 int safebreak = 1;
 void setup() {
     char chose = ' ';
     system("clear");
     std::cout << "Welcome to your phone directory book";
     while (chose != 'q' && chose != 'Q') {
+
+         if(safebreak > 100) {
+            system("clear");
+            std::cout << "\nyou reached the maximum use \n ot there some problem because you enter wrong choice...\n";
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            break;
+         }
+         safebreak++;
 
         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
         {
@@ -25,6 +34,7 @@ void setup() {
                 if(!line.empty()) // Avoid inserting empty lines
                 {
                     Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
+                    Count_Data++;
                 }
             }
         file.close();
@@ -33,13 +43,7 @@ void setup() {
 
 
          chose = ' ';
-         if(safebreak > 100) {
-            system("clear");
-            std::cout << "\nyou reached the maximum use \n ot there some problem because you enter wrong choice...\n";
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            break;
-         }
-         safebreak++;
+
          std::cout << "\n--------------------------------------------\n";
          std::cout << "1: To add new contact      press[1]\n";
          std::cout << "2: To see all contacts     press[2]\n";
@@ -65,7 +69,8 @@ void setup() {
                 break;
             case '3':
                     system("clear");
-                std::cout << "Total contacts: " << countsize() - 1 << std::endl; //
+                // std::cout << "Total contacts: " << countsize() - 1 << std::endl; //
+                std::cout << "Total contacts: " << Count_Data << std::endl; //
                 break;
             case '4':
                 {
@@ -137,50 +142,50 @@ void setup() {
                     std::cout << result << std::endl;
                 }
                 break;
-            case '0':
-            case 'M':
-            case 'm':
-                {
-                    system("clear");
-                    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
-                    { 
-                    system("clear");
-                        std::cout << "The directory is empty.\n";
-                        break;
-                    }
-                    else{
-                    system("clear");
-                    Node* maxNode = Manage_Data_Tree.MaxmumData();
-                    if(maxNode) {
-                        std::cout << "Maximum contact (based on lexicographical order): " << maxNode->data << std::endl;
-                    } else {
-                        std::cout << "The directory is empty.\n";
-                    }
-                    }
-                }
-                break;
-            case '9':
-            case 'N':
-            case 'n':
-                system("clear");
-                {
-                    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
-                    { 
-                    system("clear");
-                        std::cout << "The directory is empty.\n";
-                        break;
-                }
-                else{
-                    system("clear");
-                    Node* minNode = Manage_Data_Tree.MiniData();
-                    if(minNode) {
-                        std::cout << "Minimum contact (based on lexicographical order): " << minNode->data << std::endl;
-                    } else {
-                        std::cout << "The directory is empty.\n";
-                    }
-                }
-                }
-                break;
+            // case '0':
+            // case 'M':
+            // case 'm':
+            //     {
+            //         system("clear");
+            //         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
+            //         { 
+            //         system("clear");
+            //             std::cout << "The directory is empty.\n";
+            //             break;
+            //         }
+            //         else{
+            //         system("clear");
+            //         Node* maxNode = Manage_Data_Tree.MaxmumData();
+            //         if(maxNode) {
+            //             std::cout << "Maximum contact (based on lexicographical order): " << maxNode->data << std::endl;
+            //         } else {
+            //             std::cout << "The directory is empty.\n";
+            //         }
+            //         }
+            //     }
+            //     break;
+            // case '9':
+            // case 'N':
+            // case 'n':
+            //     system("clear");
+            //     {
+            //         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
+            //         { 
+            //         system("clear");
+            //             std::cout << "The directory is empty.\n";
+            //             break;
+            //     }
+            //     else{
+            //         system("clear");
+            //         Node* minNode = Manage_Data_Tree.MiniData();
+            //         if(minNode) {
+            //             std::cout << "Minimum contact (based on lexicographical order): " << minNode->data << std::endl;
+            //         } else {
+            //             std::cout << "The directory is empty.\n";
+            //         }
+            //     }
+            //     }
+            //     break;
 
             case '8':
             case 'q':
