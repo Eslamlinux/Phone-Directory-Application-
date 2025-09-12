@@ -196,17 +196,15 @@ Node::Node(std::string val){
     return r;
     }
 
+
     Node* filetree::Delete_All_Contacts(Node* r) {
         if (isEmpty(r)) {
-            std::cout << "The contact list is already empty. No contacts to delete.\n";
             return nullptr;
         }
         r->left = Delete_All_Contacts(r->left);
         r->right = Delete_All_Contacts(r->right);
         delete r;
-        r = nullptr;        
-        std::cout << "All contacts have been deleted successfully.\n";
-        return r;
+        return nullptr;
     }
     Node* filetree::Delete_All_Contacts() {
         root = Delete_All_Contacts(root);
