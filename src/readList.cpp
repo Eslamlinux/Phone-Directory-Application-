@@ -9,22 +9,23 @@ int counter = 1;
 void readList() {
 
     // ############################
-    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
-    { 
-    system("clear");
-        std::cout << "The directory is empty.\n";
-        return;
+                if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  
+                { 
+                    system("clear");
+                    std::cout << "The directory is empty.\n";
+                    return;
+                }
+    else if(Manage_Data_Tree.root != nullptr)    {
+        system("clear");
+        std::cout << "----------------------\n";
+        std::cout << "-- Phone  Contacts: --\n";
+        std::cout << "----------------------\n";
+        std::cout << "   Name  |   Number  :\n";
+        std::cout << "----------------------\n";
+    
+        Manage_Data_Tree.print_preorder(Manage_Data_Tree.root);
     }
-    else{
-    system("clear");
-    std::cout << "----------------------\n";
-    std::cout << "-- Phone  Contacts: --\n";
-    std::cout << "----------------------\n";
-    std::cout << "   Name  |   Number  :\n";
-    std::cout << "----------------------\n";
-
-    Manage_Data_Tree.print_preorder(Manage_Data_Tree.root);
-    }
+    
     // ############################
 
 
