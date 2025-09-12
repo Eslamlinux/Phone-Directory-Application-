@@ -26,7 +26,8 @@ class filetree{
     Node* MaxmumData();
     std::string SearchInsideTree(Node* r, const std::string& val);
     std::string SearchInsideTree(const std::string& val);
-    Node* Delete_Contact(Node* r, std::string ci); // Declaration of Delete_Contact method
+    Node* Delete_Contact(Node* r, std::string user_entry); // Declaration of Delete_Contact method
+    Node* Delete_Contact(std::string user_entry); // Declaration of Delete_Contact method
     Node* Delete_All_Contacts(Node* r); // Declaration of Delete_All_Contacts method
     Node* Delete_All_Contacts(); // Declaration of Delete_All_Contacts method
     void print_preorder(Node* r);

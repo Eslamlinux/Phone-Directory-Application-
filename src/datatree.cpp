@@ -195,6 +195,9 @@ Node::Node(std::string val){
     }
     return r;
     }
+    Node* filetree::Delete_Contact(std::string val) {
+        return Delete_Contact(Manage_Data_Tree.root, val);
+    }
 
 
     Node* filetree::Delete_All_Contacts(Node* r) {
