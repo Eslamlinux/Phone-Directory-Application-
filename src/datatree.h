@@ -20,6 +20,10 @@ class filetree{
     void To_insert(std::string val);
     void Save(Node* r);
     void SaveToFile();
+    Node* MiniData(Node* r);
+    Node* MiniData();
+    Node* MaxmumData(Node* r);
+    Node* MaxmumData();
     std::string SearchInsideTree(Node* r, const std::string& val);
     std::string SearchInsideTree(const std::string& val);
     Node* Delete_Contact(Node* r, std::string ci); // Declaration of Delete_Contact method

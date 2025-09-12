@@ -125,6 +125,37 @@ Node::Node(std::string val){
         return SearchInsideTree(Manage_Data_Tree.root, val);
     }
 
+
+    Node* filetree::MiniData(Node* r) {
+            if (isEmpty(r) ) {
+                return r;
+            }
+            else if (isEmpty(r->left)) {
+                return r;
+            }
+        return MiniData(r->left);
+    }
+    Node* filetree::MiniData() {
+        return MiniData(root);
+    }
+
+
+    Node* filetree::MaxmumData(Node* r) {
+            if (isEmpty(r)) {
+                return r;
+            }
+            else if (isEmpty(r->right)) {
+                return r;
+            }
+        return MaxmumData(r->right);
+    }
+    Node* filetree::MaxmumData() {
+        return MaxmumData(root);
+    }
+
+
+
+
     Node* filetree::Delete_Contact(Node* r ,std::string val) {        
         if (isEmpty(r)) {
             std::cout << "The contact list is empty. No contacts to delete.\n";

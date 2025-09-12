@@ -47,6 +47,8 @@ void setup() {
          std::cout << "6: Save last changes       press[S]\n";
          std::cout << "7: To search contact       press[F]\n";
          std::cout << "8: To exit                 press[Q]\n";
+         std::cout << "0: Maxmum                  press[m]\n";
+         std::cout << "9: Main                    press[n]\n";
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> chose;
@@ -132,6 +134,51 @@ void setup() {
                     std::cout << result << std::endl;
                 }
                 break;
+            case '0':
+            case 'M':
+            case 'm':
+                {
+                    system("clear");
+                    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
+                    { 
+                    system("clear");
+                        std::cout << "The directory is empty.\n";
+                        break;
+                    }
+                    else{
+                    system("clear");
+                    Node* maxNode = Manage_Data_Tree.MaxmumData();
+                    if(maxNode) {
+                        std::cout << "Maximum contact (based on lexicographical order): " << maxNode->data << std::endl;
+                    } else {
+                        std::cout << "The directory is empty.\n";
+                    }
+                    }
+                }
+                break;
+            case '9':
+            case 'N':
+            case 'n':
+                system("clear");
+                {
+                    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
+                    { 
+                    system("clear");
+                        std::cout << "The directory is empty.\n";
+                        break;
+                }
+                else{
+                    system("clear");
+                    Node* minNode = Manage_Data_Tree.MiniData();
+                    if(minNode) {
+                        std::cout << "Minimum contact (based on lexicographical order): " << minNode->data << std::endl;
+                    } else {
+                        std::cout << "The directory is empty.\n";
+                    }
+                }
+                }
+                break;
+
             case '8':
             case 'q':
             case 'Q':
