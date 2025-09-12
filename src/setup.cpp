@@ -183,11 +183,31 @@ void setup() {
             case 'q':
             case 'Q':
                 system("clear");
+                
+                std::cout << "Do you want save the changes ? 'Y' for save 'N' for Ignore it\n" ;
+                std::cin >> chose;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if(chose == 'y' || chose == 'Y'){
                 std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
+                std::cout << "|*| All your changes are saved :)                           |*| \n";
                 std::cout << "|*| Goodbye !                                               |*| \n";
                 std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 Manage_Data_Tree.SaveToFile();
+                }
+                else if(chose == 'n' || chose == 'N'){
+                {
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
+                std::cout << "|*| All your changes are ignored :(                         |*| \n";
+                std::cout << "|*| Goodbye !                                               |*| \n";
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                }
+                }
+                else{
+                    std::cout << "Invalid choice. Returning to main menu.\n";
+                    break;
+                }
                 return;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
