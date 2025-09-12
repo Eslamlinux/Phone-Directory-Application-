@@ -158,59 +158,55 @@ Node::Node(std::string val){
 
     Node* filetree::Delete_Contact(Node* r ,std::string val) {        
         if (isEmpty(r)) {
-            std::cout << "The contact list is empty. No contacts to delete.\n";
-            return nullptr;
+            return nullptr; // Node not found
         }
-        else if(val == "") {
-            std::cout << "Invalid contact name. Please provide a valid name.\n";
-            return nullptr;
-        }
-        else if(val < r->data) {
-            r->left = Delete_Contact(r->left, val);
-        }
-        else if(val > r->data) {
-            r->right = Delete_Contact(r->right, val);
-        }
-         else{   // Node with only one child or no child
+        
+        // Check if current node contains the value to delete
+        if(r->data.find(val) != std::string::npos) {
+            // Found the node to delete
             if (r->left == nullptr && r->right == nullptr) {
-                if(r->data.find(val) != std::string::npos) {
-                    delete r;
-                    r = nullptr;
-                } 
-                else {
-                    std::cout << "Contact not found. No contacts were deleted.\n";
-                }
-
+                // Case 1: Node has no children (leaf node)
+                delete r;
+                return nullptr;
             } 
             else if (r->left != nullptr && r->right == nullptr) {
-                if(r->data.find(val) != std::string::npos) {
-                    Node* temp = r->left;
-                    delete r;
-                    r = temp;
-                } 
-                else {
-                    std::cout << "Contact not found. No contacts were deleted.\n";
-                }
+                // Case 2: Node has only left child
+                Node* temp = r->left;
+                delete r;
+                return temp;
             }
-        else if (r->left == nullptr && r->right != nullptr) {
-            if(r->data.find(val) != std::string::npos) {
+            else if (r->left == nullptr && r->right != nullptr) {
+                // Case 3: Node has only right child
                 Node* temp = r->right;
                 delete r;
-                r = temp;
-            } 
+                return temp;
+            }
             else {
-                std::cout << "Contact not found. No contacts were deleted.\n";
+                // Case 4: Node has two children
+                // Find the inorder successor (smallest in the right subtree)
+                Node* temp = r->right;
+                while (temp && temp->left != nullptr) {
+                    temp = temp->left;
+                }
+                
+                // Copy the inorder successor's data to this node
+                r->data = temp->data;
+                
+                // Delete the inorder successor
+                r->right = Delete_Contact(r->right, temp->data);
+                return r;
             }
         }
-        else { // Node with two children: Get the inorder successor (smallest in the right subtree)
-            if(r->data.find(val) != std::string::npos) {
-            Node* temp = r->right;
-            while (temp && temp->left != nullptr) {
-                temp = temp->left;
+        else {
+            // Search in left or right subtree based on lexicographical order
+            if (val < r->data) {
+                r->left = Delete_Contact(r->left, val);
+            }
+            else {
+                r->right = Delete_Contact(r->right, val);
             }
         }
-}
-         }
+        
         return r;
     }
 
@@ -218,18 +214,26 @@ Node::Node(std::string val){
 
     Node* filetree::Delete_All_Contacts(Node* r) {
         if (isEmpty(r)) {
-            std::cout << "The contact list is already empty. No contacts to delete.\n";
             return nullptr;
         }
+        
+        // Recursively delete left and right subtrees
         r->left = Delete_All_Contacts(r->left);
         r->right = Delete_All_Contacts(r->right);
+        
+        // Delete the current node
         delete r;
-        r = nullptr;        
-        std::cout << "All contacts have been deleted successfully.\n";
-        return r;
+        return nullptr;
     }
+    
     Node* filetree::Delete_All_Contacts() {
+        if (isEmpty(root)) {
+            std::cout << "The contact list is already empty. No contacts to delete.\n";
+            return root;
+        }
+        
         root = Delete_All_Contacts(root);
+        std::cout << "All contacts have been deleted successfully.\n";
         return root;
     }
 
