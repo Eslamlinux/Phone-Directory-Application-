@@ -87,7 +87,8 @@ void setup() {
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
-                        DeleteContact(ci);
+                        // DeleteContact(ci);
+                        Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, ci);
                         system("clear");
                         std::cout << "If the contact existed, it has been deleted.\n";
                     }

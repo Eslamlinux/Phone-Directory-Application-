@@ -124,3 +124,48 @@ Node::Node(std::string val){
     std::string filetree::SearchInsideTree(const std::string& val) {
         return SearchInsideTree(Manage_Data_Tree.root, val);
     }
+
+    Node* filetree::Delete_Contact(Node* r ,std::string val) {        
+        if (isEmpty(r)) {
+            std::cout << "The contact list is empty. No contacts to delete.\n";
+            return;
+        }
+        else if(val == "") {
+            std::cout << "Invalid contact name. Please provide a valid name.\n";
+            return;
+        }
+        else if(val < r->data) {
+            Delete_Contact(r->left, ci);
+        }
+        else if(ci > r->data) {
+            Delete_Contact(r->right, ci);
+        }
+        else if(r->data.find(ci) != std::string::npos) {
+            // Node with only one child or no child
+            if (r->left == nullptr) {
+                Node* temp = r->right;
+                delete r;
+                r = temp;
+            } else if (r->right == nullptr) {
+                Node* temp = r->left;
+                delete r;
+                r = temp;
+            } 
+            else {
+                // Node with two children: Get the inorder successor (smallest in the right subtree)
+                Node* temp = r->right;
+                while (temp && temp->left != nullptr) {
+                    temp = temp->left;
+                }
+                // Copy the inorder successor's content to this node
+                r->data = temp->data;
+                // Delete the inorder successor
+                Delete_Contact(r->right, temp->data);
+            }
+            std::cout << "The contact has been deleted.\n";
+        } else {
+            std::cout << "Contact not found. No contacts were deleted.\n";
+        }
+
+
+    }

@@ -22,7 +22,7 @@ class filetree{
     void SaveToFile();
     std::string SearchInsideTree(Node* r, const std::string& val);
     std::string SearchInsideTree(const std::string& val);
-
+    Node* Delete_Contact(Node* r, std::string ci); // Declaration of Delete_Contact method
     void print_preorder(Node* r);
     void print_inorder(Node* r);
     void print_postorder(Node* r);
