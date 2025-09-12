@@ -103,7 +103,7 @@ void setup() {
             case 'D':
             case 'd':
                 system("clear");
-                deleteAllContacts();
+                Manage_Data_Tree.Delete_All_Contacts();
                 break;
 
             case '6':
