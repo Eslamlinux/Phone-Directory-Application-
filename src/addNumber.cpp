@@ -26,7 +26,7 @@ void addNumber() {
     }
 
     // Insert into data tree
-        std::string entry_check = entry_name + " | " + entry_num;
+        std::string entry_check = entry_name + " | " + entry_num +"\n";
         Manage_Data_Tree.To_insert(entry_check);
         system("clear");
         std::cout << "Contact (" << entry_name << " | " <<entry_num << ") added successfully.\n";

@@ -224,7 +224,7 @@ Node::Node(std::string val){
         r->left = Delete_All_Contacts(r->left);
         r->right = Delete_All_Contacts(r->right);
         delete r;
-        r = nullptr;
+        r = nullptr;        
         std::cout << "All contacts have been deleted successfully.\n";
         return r;
     }
