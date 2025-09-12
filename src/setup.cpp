@@ -19,10 +19,13 @@ void setup() {
         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
         {
             std::ifstream file;
-            file.open("data/myPhoneData.txt", std::ios::app);
+            file.open("data/myPhoneData.txt", std::ios::in);
             std::string line ="";
-            while(std::getline(file, line)) {    
-            Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
+            while(std::getline(file, line)) {   
+                if(!line.empty()) // Avoid inserting empty lines
+                {
+                    Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
+                }
             }
         file.close();
         }
@@ -88,9 +91,9 @@ void setup() {
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
-                        Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
+                        Manage_Data_Tree.root = Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
                         system("clear");
-                        std::cout << "If the contact existed, it has been deleted.\n";
+                        std::cout <<  "Contact deleted successfully.\n";
                     }
                     else{
                         system("clear");
