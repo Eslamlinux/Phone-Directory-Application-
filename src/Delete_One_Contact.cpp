@@ -16,10 +16,10 @@ void Delete_One_Contact(std::string User_entry) {
                     if(User_entry.empty()|| User_entry.find_first_not_of(' ') == std::string::npos) {
                         system("clear");
                         std::cout << "Name cannot be empty. \nPlease try again.\n";
-                        break;
+                        return;
                     }
                     system("clear");
-                    std::cout << "Are you sure you want to delete all (" << ci << ") data? Press 'Y' to continue or 'N' to ignore. \n";
+                    std::cout << "Are you sure you want to delete all (" << User_entry << ") data? Press 'Y' to continue or 'N' to ignore. \n";
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
@@ -31,6 +31,6 @@ void Delete_One_Contact(std::string User_entry) {
                     else{
                         system("clear");
                         std::cout << "Operation cancelled. No contacts were deleted.\n";
-                        break;
+                        return;
                     }
                 }
