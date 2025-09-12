@@ -9,7 +9,8 @@
 #include "datatree.h"
 #include <The_counter.h>
 
-Count cd ;
+Count CountResult ;
+
 long int Count_Data = 0;
 int safebreak = 1;
 void setup() {
@@ -37,6 +38,7 @@ void setup() {
                     Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
                     Count_Data++;
                 }
+                CountResult.Count_Data = Count_Data;
             }
         file.close();
         }
