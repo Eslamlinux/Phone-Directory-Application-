@@ -7,8 +7,9 @@
 #include "readList.h"
 #include "deleteAllContacts.h"
 #include "datatree.h"
+#include <The_counter.h>
 
-
+Count cd ;
 long int Count_Data = 0;
 int safebreak = 1;
 void setup() {
