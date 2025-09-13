@@ -1,5 +1,6 @@
 #include "addNumber.h"
 #include "datatree.h"
+#include "The_counter.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,6 +26,9 @@ void addNumber() {
         return;
     }
 
+    CountResult.Count_changes++; // Increment changes count
+    CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count
+   
     // Insert into data tree
         std::string entry_check = entry_name + " | " + entry_num +"\n";
         Manage_Data_Tree.To_insert(entry_check);

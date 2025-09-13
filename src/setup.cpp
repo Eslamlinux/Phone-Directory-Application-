@@ -9,7 +9,6 @@
 #include "datatree.h"
 #include <The_counter.h>
 
-Count CountResult ;
 
 long int Count_Data = 0;
 int safebreak = 1;
@@ -99,6 +98,10 @@ void setup() {
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
+                        
+                        CountResult.Count_changes--; // Decrement changes count
+                        CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update
+
                         Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
                         Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
 
