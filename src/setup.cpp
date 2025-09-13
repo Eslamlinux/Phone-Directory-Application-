@@ -56,8 +56,8 @@ void setup() {
          std::cout << "6: Save last changes       press[S]\n";
          std::cout << "7: To search contact       press[F]\n";
          std::cout << "8: To exit                 press[Q]\n";
-         std::cout << "0: Maxmum                  press[m]\n";
-         std::cout << "9: Main                    press[n]\n";
+        //  std::cout << "0: Maxmum                  press[m]\n";
+        //  std::cout << "9: Main                    press[n]\n";
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> chose;
