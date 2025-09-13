@@ -101,7 +101,8 @@ void setup() {
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
 
-                        CountResult.Count_changes--; // Decrement changes count
+                        CountResult.Count_changes++; // Decrement changes count
+                        CountResult.Count_deleted++; // Increment deleted count
                         CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update
 
                         Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
