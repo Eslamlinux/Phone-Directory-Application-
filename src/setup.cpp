@@ -72,8 +72,7 @@ void setup() {
                 break;
             case '3':
                     system("clear");
-                // std::cout << "Total contacts: " << countsize() - 1 << std::endl; //
-                CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count   
+                CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
                 std::cout << "Total contacts: " << CountResult.curentCount << std::endl; //
                 break;
             case '4':
@@ -103,7 +102,8 @@ void setup() {
 
                         CountResult.Count_changes++; // Decrement changes count
                         CountResult.Count_deleted++; // Increment deleted count
-                        CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update
+                        CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
+
 
                         Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
                         Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
@@ -129,16 +129,27 @@ void setup() {
             case 't':
             case 'T':
                 system("clear");
-                CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count
-                std::cout << "Total contacts currently in the directory: " << CountResult.curentCount << std::endl;
-                std::cout << "Total contacts loaded from file: " << CountResult.Count_Data << std::endl;
+                CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
+                CountResult.Count_not_saved = CountResult.Count_deleted + CountResult.Count_new_contact;
+                CountResult.Count_all_deleted =  CountResult.Count_all_deleted + CountResult.Count_deleted;
+                std::cout << "Total contacts loaded from Data during start the program: " << CountResult.Count_Data << std::endl;
+                std::cout << "Total contacts currently in the directory after changes: " << CountResult.curentCount << std::endl;
+                std::cout << "Total changes not yet saved to the Data file: " << CountResult.Count_not_saved << std::endl;
+                std::cout << std::endl;
                 std::cout << "Total changes made during the session: " << CountResult.Count_changes << std::endl;
+                std::cout << "Total deletions Numbers made during the session: " << CountResult.Count_all_deleted << std::endl;
+                std::cout << "Total new contacts added during the session: " << CountResult.Count_new_contact << std::endl;
+                std::cout << "Total deletions (all) made during the session: " << CountResult.Count_all_deleted << std::endl;
+                // std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
                 break;
 
             case '7':
             case 's':
             case 'S':
-            Manage_Data_Tree.SaveToFile();
+            CountResult.Count_saved = CountResult.Count_changes; // count of changes saved to the file
+            CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
+            CountResult.Count_all_deleted += CountResult.Count_deleted;; // count of all deletions
+            CountResult.Count_deleted = 0; // count of deletions made during the session
             system("clear");
             std::cout << "All changes have been saved successfully.\n";
             break;

@@ -28,10 +28,13 @@ void addNumber() {
 
     CountResult.Count_changes++; // Increment changes count
     CountResult.Count_new_contact++; // Increment new contact count
-    CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count
+    CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
    
     // Insert into data tree
         std::string entry_check = entry_name + " | " + entry_num +"\n";
+        if(Manage_Data_Tree.root->data ==""){
+            Manage_Data_Tree.Delete_Contact("");
+        }
         Manage_Data_Tree.To_insert(entry_check);
         system("clear");
         std::cout << "Contact (" << entry_name << " | " <<entry_num << ") added successfully.\n";

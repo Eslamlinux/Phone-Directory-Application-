@@ -53,13 +53,13 @@ void readList() {
 //         std::cerr << "Error: Could not open the file for reading.\n";
 //     }
 }
-int countsize() {
-    std::fstream reading("data/myPhoneData.txt");
-    std::string wReturn;
-    counter = 1; // Reset counter to 1 each time countsize is called
-    while (std::getline(reading, wReturn)) {
+// int countsize() {
+//     std::fstream reading("data/myPhoneData.txt");
+//     std::string wReturn;
+//     counter = 1; // Reset counter to 1 each time countsize is called
+//     while (std::getline(reading, wReturn)) {
             
-                counter++;
-            }
-    return counter;
-}
+//                 counter++;
+//             }
+//     return counter;
+// }
