@@ -1,9 +1,10 @@
 #include "readList.h"
 #include "datatree.h"
+#include <The_counter.h>
 #include <iostream>
 #include <fstream>
 #include <string>
-int counter = 1;
+// int counter = 1;
 
 
 void readList() {
@@ -17,11 +18,13 @@ void readList() {
                 }
     else if(Manage_Data_Tree.root != nullptr)    {
         system("clear");
+        CountResult.curentCount = (CountResult.Count_Data + CountResult.Count_new_contact) - CountResult.Count_deleted; // Update current count 
         std::cout << "----------------------\n";
         std::cout << "-- Phone  Contacts: --\n";
         std::cout << "----------------------\n";
         std::cout << "   Name  |   Number  :\n";
         std::cout << "----------------------\n";
+        std::cout << "Contact Total: " << CountResult.curentCount << "\n";
     
         Manage_Data_Tree.print_preorder(Manage_Data_Tree.root);
     }
