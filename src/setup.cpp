@@ -52,9 +52,10 @@ void setup() {
          std::cout << "3: Total contact           press[3]\n";
          std::cout << "4: Delete one contact      press[4]\n";
          std::cout << "5: To delete all contacts  press[D]\n";
-         std::cout << "6: Save last changes       press[S]\n";
-         std::cout << "7: To search contact       press[F]\n";
-         std::cout << "8: To exit                 press[Q]\n";
+         std::cout << "6: To see Total changes    press[T]\n";
+         std::cout << "7: Save last changes       press[S]\n";
+         std::cout << "8: To search contact       press[F]\n";
+         std::cout << "9: To exit                 press[Q]\n";
         //  std::cout << "0: Maxmum                  press[m]\n";
         //  std::cout << "9: Main                    press[n]\n";
          std::cout << "--------------------------------------------\n";
@@ -72,7 +73,8 @@ void setup() {
             case '3':
                     system("clear");
                 // std::cout << "Total contacts: " << countsize() - 1 << std::endl; //
-                std::cout << "Total contacts: " << Count_Data << std::endl; //
+                CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count   
+                std::cout << "Total contacts: " << CountResult.curentCount << std::endl; //
                 break;
             case '4':
                 {
@@ -98,7 +100,7 @@ void setup() {
                     std::cin >> chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
-                        
+
                         CountResult.Count_changes--; // Decrement changes count
                         CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update
 
@@ -123,6 +125,16 @@ void setup() {
                 break;
 
             case '6':
+            case 't':
+            case 'T':
+                system("clear");
+                CountResult.curentCount = CountResult.Count_Data + CountResult.Count_changes; // Update current count
+                std::cout << "Total contacts currently in the directory: " << CountResult.curentCount << std::endl;
+                std::cout << "Total contacts loaded from file: " << CountResult.Count_Data << std::endl;
+                std::cout << "Total changes made during the session: " << CountResult.Count_changes << std::endl;
+                break;
+
+            case '7':
             case 's':
             case 'S':
             Manage_Data_Tree.SaveToFile();
@@ -130,7 +142,7 @@ void setup() {
             std::cout << "All changes have been saved successfully.\n";
             break;
 
-            case '7':
+            case '8':
             case 'f':
             case 'F':
                 {
@@ -193,7 +205,7 @@ void setup() {
             //     }
             //     break;
 
-            case '8':
+            case '9':
             case 'q':
             case 'Q':
                 system("clear");

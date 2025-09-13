@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include "datatree.h"
+#include <The_counter.h>
 
 void deleteAllContacts() {
     char chose;
@@ -12,6 +13,8 @@ void deleteAllContacts() {
     if (chose == 'y' || chose == 'Y') {
         Manage_Data_Tree.Delete_All_Contacts();
         Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+        CountResult.Count_changes = -CountResult.Count_Data; // Adjust changes count to reflect deletion of all contacts
+        CountResult.curentCount = 0; // Update current count to zero
         system("clear");
         std::cout << "All contacts have been deleted.\n";
     } else {
