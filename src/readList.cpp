@@ -8,13 +8,13 @@
 
 void readList() {
 
-    if(Manage_Data_Tree.root->data =="")  // Check if the tree is empty
+    if(Manage_Data_Tree.root == nullptr || Manage_Data_Tree.root->data =="")  // Check if the tree is empty
     { 
         system("clear");
         std::cout << "The directory is empty.\n";
         return;
     }
-    else if(Manage_Data_Tree.root != nullptr || Manage_Data_Tree.root->data != "") { 
+    else if(Manage_Data_Tree.root != nullptr && Manage_Data_Tree.root->data != "") { 
         system("clear");
         CountResult.curentCount = (CountResult.Count_Data + CountResult.Count_new_contact) - CountResult.Count_deleted; // Update current count 
         std::cout << "-------- P.H.O.N.E  C.O.N.T.A.C.T.S --------\n";

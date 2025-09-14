@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Phone Directory
+Comment=A simple phone directory application
+Exec=@CMAKE_INSTALL_PREFIX@/bin/phone_directory
+Icon=phone
+Terminal=true
+Categories=Office;ContactManagement;

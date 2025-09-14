@@ -1,4 +1,4 @@
-# Phone Directory Application V1.0.0 Beta 📞
+# Phone Directory Application V1.0.1 📞
 
 This is a simple yet effective C++ console application designed to help users manage their phone contacts. The project serves as a great learning tool for fundamental file handling operations and command-line interfaces in C++.
 
@@ -26,19 +26,74 @@ To get this project up and running, follow these simple steps:
     ```
 
 2.  **Compile the Code**:
-    Use a C++ compiler like GCC to compile the source file.
-
+    
+    **Option A: Quick Install (recommended)**:
     ```bash
-    g++ main.cpp -o phone_directory_book
+    ./install.sh
+    ```
+    This script will automatically detect the best build method and offer installation options.
+
+    **Option B: Using Make (traditional)**:
+    ```bash
+    make
+    ```
+
+    **Option C: Using CMake (recommended for packaging)**:
+    ```bash
+    mkdir build && cd build
+    cmake ..
+    make
+    ```
+
+    **Option D: Manual compilation**:
+    ```bash
+    g++ -std=c++17 -Isrc main.cpp src/*.cpp -o phone_directory
     ```
 
 3.  **Run the Application**:
 
     ```bash
-    ./phone_directory_book
+    ./phone_directory
     ```
 
     Once running, a menu of options will be displayed in the terminal.
+
+### Packaging 📦
+
+To create distributable packages:
+
+1.  **Using CMake and CPack**:
+    ```bash
+    mkdir build && cd build
+    cmake ..
+    make
+    cpack
+    ```
+
+    This will create DEB, RPM, and TGZ packages on Linux systems.
+
+2.  **Install system-wide**:
+    ```bash
+    sudo make install
+    ```
+
+-----
+
+### Changelog 📝
+
+**Version 1.0.1** (Current)
+- ✅ Fixed crash when accessing "see all contacts" after deleting data
+- ✅ Fixed inaccurate counting in "Total changes" section  
+- ✅ Replaced hardcoded file paths with dynamic path resolution for better packaging
+- ✅ Improved tree deletion logic and root pointer handling
+- ✅ Enhanced empty tree state management
+- ✅ Added CMake build system for professional packaging
+- ✅ Created DEB, RPM, and TGZ package generation support
+- ✅ Added system-wide installation support
+- ✅ Improved data file location detection (works with installed packages)
+
+**Version 1.0.0 Beta**
+- Initial release with basic phone directory functionality
 
 -----
 

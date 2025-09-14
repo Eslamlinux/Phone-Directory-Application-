@@ -13,7 +13,6 @@ void deleteAllContacts() {
     if (chose == 'y' || chose == 'Y') {
         CountResult.Count_all_deleted = CountResult.curentCount ; // all deleted count
         Manage_Data_Tree.Delete_All_Contacts();
-        Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
         CountResult.Count_changes++; // increment changes count
         CountResult.Count_deleted += CountResult.Count_all_deleted; // Increment deleted count
         CountResult.curentCount = 0; // Update current count to zero

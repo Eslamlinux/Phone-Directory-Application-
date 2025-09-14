@@ -1,0 +1,9 @@
+Architecture: amd64
+Description: A simple phone directory application
+Maintainer: Eslamlinux
+Package: phonedirectory
+Priority: optional
+Section: utils
+Version: 1.0.1
+Installed-Size: 89
+
