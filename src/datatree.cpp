@@ -128,17 +128,17 @@ Node::Node(std::string val){
     
     void filetree::SearchAndPrintAll(const std::string& val) {
         int foundCount = 0;
-        std::cout << "البحث عن: " << val << std::endl;
-        std::cout << "النتائج المطابقة:" << std::endl;
+        std::cout << "Search for: " << val << std::endl;
+        std::cout << "Result found:" << std::endl;
         std::cout << "----------------------------------------" << std::endl;
         
         SearchAndPrintAll(root, val, foundCount);
         
         if (foundCount == 0) {
-            std::cout << "لم يتم العثور على أي نتائج مطابقة لـ: " << val << std::endl;
+            std::cout << "Nothing matching your search: " << val << " was found" << std::endl;
         } else {
             std::cout << "----------------------------------------" << std::endl;
-            std::cout << "تم العثور على " << foundCount << " نتيجة مطابقة." << std::endl;
+            std::cout << "Found " << foundCount << " Matching result." << std::endl;
         }
     }
 
