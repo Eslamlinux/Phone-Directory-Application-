@@ -24,6 +24,8 @@ class filetree{
     Node* MiniData();
     Node* MaxmumData(Node* r);
     Node* MaxmumData();
+    void SearchAndPrintAll(Node* r, const std::string& val, int& foundCount);
+    void SearchAndPrintAll(const std::string& val);
     std::string SearchInsideTree(Node* r, const std::string& val);
     std::string SearchInsideTree(const std::string& val);
     Node* Delete_Contact(Node* r, std::string user_entry); 

@@ -157,6 +157,35 @@ void setup() {
             case '8':
             case 'f':
             case 'F':
+            system("clear");
+            std::cout << "Choose search mode:\n";
+            std::cout << "1: Search and print all matching contacts (press [1])\n";
+            std::cout << "2: Search for exact contact (press [2])\n";
+            std::cout << "Your choice: ";
+            char searchChoice;
+            std::cin >> searchChoice;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            if(searchChoice != '1' && searchChoice != '2') {
+                system("clear");
+                std::cout << "Invalid choice. Returning to main menu.\n";
+                break;
+            }
+            switch(searchChoice) {
+                case '1':   
+                    {
+                        std::string To_search;
+                        system("clear");
+                        std::cout << "Enter the name or part of the name to search:\n";
+                        getline(std::cin, To_search);
+                        if(To_search.empty()|| To_search.find_first_not_of(' ') == std::string::npos) {
+                            system("clear");
+                            std::cout << "Name cannot be empty. \nPlease try again.\n";
+                            break;
+                        }
+                        Manage_Data_Tree.SearchAndPrintAll(To_search);
+                    }
+                    break;
+                case '2':
                 {
                     std::string To_search;
                     system("clear");
@@ -172,6 +201,7 @@ void setup() {
                     std::cout << result << std::endl;
                 }
                 break;
+            }
             // case '0':
             // case 'M':
             // case 'm':
