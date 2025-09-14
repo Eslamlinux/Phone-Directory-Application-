@@ -85,7 +85,9 @@ Node::Node(std::string val){
         }
         
         std::ofstream file;
-        file.open("data/myPhoneData.txt", std::ios::app);
+        // file.open("data/myPhoneData.txt", std::ios::app);
+        file.open(getDataFilePath(), std::ios::app);
+
 
         if(file.is_open()) {
             file << r->data;
@@ -98,7 +100,9 @@ Node::Node(std::string val){
      void filetree::SaveToFile(){
         // Clear the file first
         std::ofstream file;
-        file.open("data/myPhoneData.txt", std::ios::trunc);
+        // file.open("data/myPhoneData.txt", std::ios::trunc);
+        file.open(getDataFilePath(), std::ios::trunc);
+
         if(file.is_open()) {
             file.close();
         }
@@ -232,7 +236,9 @@ Node::Node(std::string val){
     return r;
     }
     Node* filetree::Delete_Contact(std::string val) {
-        return Delete_Contact(Manage_Data_Tree.root, val);
+        // return Delete_Contact(Manage_Data_Tree.root, val);
+    root = Delete_Contact(root, val);
+    return root;
     }
 
 
@@ -246,7 +252,8 @@ Node::Node(std::string val){
         return nullptr;
     }
     Node* filetree::Delete_All_Contacts() {
-         Delete_All_Contacts(Manage_Data_Tree.root);
+        //  Delete_All_Contacts(Manage_Data_Tree.root);
+        root = Delete_All_Contacts(root);
         return root;
     }
 

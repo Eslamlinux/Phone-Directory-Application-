@@ -8,6 +8,8 @@
 #include "deleteAllContacts.h"
 #include "datatree.h"
 #include <The_counter.h>
+#include "utils.h"
+
 
 
 long int Count_Data = 0;
@@ -29,7 +31,8 @@ void setup() {
         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
         {
             std::ifstream file;
-            file.open("data/myPhoneData.txt", std::ios::in);
+            // file.open("data/myPhoneData.txt", std::ios::in);
+            file.open(getDataFilePath(), std::ios::in);
             std::string line ="";
             while(std::getline(file, line)) {   
                 if(!line.empty()) // Avoid inserting empty lines
@@ -107,8 +110,9 @@ void setup() {
                         CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
 
 
-                        Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
-                        Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                        // Manage_Data_Tree.Delete_Contact(Manage_Data_Tree.root, User_entry);
+                        // Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                        Manage_Data_Tree.Delete_Contact(User_entry);
 
                         system("clear");
                         std::cout <<  "Contact deleted successfully.\n";
@@ -138,12 +142,13 @@ void setup() {
                 CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
                 CountResult.Count_all_deleted = 0; // count of all deletions 
                 Manage_Data_Tree.Delete_All_Contacts();
-                Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                // Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
                 CountResult.curentCount = CountResult.Count_Data; // Update current count to the original count
                 // Reload original data from file
                 {
                     std::ifstream file;
-                    file.open("data/myPhoneData.txt", std::ios::in);
+                    // file.open("data/myPhoneData.txt", std::ios::in);
+                    file.open(getDataFilePath(), std::ios::in);
                     std::string line ="";
                     while(std::getline(file, line)) {   
                         if(!line.empty()) // Avoid inserting empty lines
@@ -163,15 +168,20 @@ void setup() {
                 system("clear");
                 CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
                 CountResult.Count_not_saved = CountResult.Count_deleted + CountResult.Count_new_contact;
-                CountResult.Count_all_deleted =  CountResult.Count_all_deleted + CountResult.Count_deleted;
+                // CountResult.Count_all_deleted =  CountResult.Count_all_deleted + CountResult.Count_deleted;
                 std::cout << "Total contacts loaded from Data during start the program: " << CountResult.Count_Data << std::endl;
                 std::cout << "Total contacts currently in the directory after changes: " << CountResult.curentCount << std::endl;
                 std::cout << "Total changes not yet saved to the Data file: " << CountResult.Count_not_saved << std::endl;
                 std::cout << std::endl;
                 std::cout << "Total changes made during the session: " << CountResult.Count_changes << std::endl;
                 std::cout << "Total new contacts added during the session: " << CountResult.Count_new_contact << std::endl;
-                std::cout << "Total deletions (all) made during the session: " << CountResult.Count_all_deleted << std::endl;
+                // std::cout << "Total deletions (all) made during the session: " << CountResult.Count_all_deleted << std::endl;
                 // std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
+
+                std::cout << "Total deletions made during the session: " << CountResult.Count_deleted << std::endl;
+                std::cout << "Total all-time deletions: " << CountResult.Count_all_deleted << std::endl;
+                std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
+            
                 break;
 
             case '8':
@@ -179,7 +189,7 @@ void setup() {
             case 'S':
             CountResult.Count_saved = CountResult.Count_changes; // count of changes saved to the file
             CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
-            CountResult.Count_all_deleted += CountResult.Count_deleted;; // count of all deletions
+            CountResult.Count_all_deleted += CountResult.Count_deleted; // count of all deletions
             CountResult.Count_deleted = 0; // count of deletions made during the session
             system("clear");
             Manage_Data_Tree.SaveToFile();

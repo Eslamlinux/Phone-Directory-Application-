@@ -1,6 +1,27 @@
-# Ignore build artifacts
-obj/
-phone_directory
+echo "# Build files" >> .gitignore
+echo "build/" >> .gitignore
+echo "obj/" >> .gitignore
+echo "phone_directory" >> .gitignore
+echo "*.o" >> .gitignore
 
-# Ignore user-specific data if desired
-# data/myPhoneData.txt
+# CMake files
+echo "CMakeFiles/" >> .gitignore
+echo "CMakeCache.txt" >> .gitignore
+echo "cmake_install.cmake" >> .gitignore
+echo "CPackConfig.cmake" >> .gitignore
+echo "CPackSourceConfig.cmake" >> .gitignore
+echo "install_manifest.txt" >> .gitignore
+echo "Makefile" >> .gitignore
+
+# Package files
+echo "DEB/" >> .gitignore
+echo "RPM/" >> .gitignore
+echo "TGZ/" >> .gitignore
+echo "*.deb" >> .gitignore
+echo "*.rpm" >> .gitignore
+echo "*.tar.gz" >> .gitignore
+
+# Desktop files
+echo "*.desktop" >> .gitignore
+echo "phone_directory.desktop.in" >> .gitignore
+echo "install.sh" >> .gitignore
