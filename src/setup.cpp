@@ -158,16 +158,16 @@ void setup() {
             case 'f':
             case 'F':
                 {
-                    std::string ci;
+                    std::string To_search;
                     system("clear");
                     std::cout << "Enter the exact name of the contact to search:\n";
-                    getline(std::cin, ci);
-                    if(ci.empty()|| ci.find_first_not_of(' ') == std::string::npos) {
+                    getline(std::cin, To_search);
+                    if(To_search.empty()|| To_search.find_first_not_of(' ') == std::string::npos) {
                         system("clear");
                         std::cout << "Name cannot be empty. \nPlease try again.\n";
                         break;
                     }
-                    std::string result = Manage_Data_Tree.SearchInsideTree(ci);
+                    std::string result = Manage_Data_Tree.SearchInsideTree(To_search);
                     system("clear");
                     std::cout << result << std::endl;
                 }
