@@ -54,12 +54,12 @@ void setup() {
          std::cout << "3: Total contact           press[3]\n";
          std::cout << "4: Delete one contact      press[4]\n";
          std::cout << "5: To delete all contacts  press[D]\n";
-         std::cout << "6: To see Total changes    press[T]\n";
-         std::cout << "7: Save last changes       press[S]\n";
-         std::cout << "8: To search contact       press[F]\n";
-         std::cout << "9: To exit                 press[Q]\n";
-        //  std::cout << "0: Maxmum                  press[m]\n";
-        //  std::cout << "9: Main                    press[n]\n";
+         std::cout << "6: Ignore the chabges      press[I]\n";
+         std::cout << "7: To see Total changes    press[T]\n";
+         std::cout << "8: Save last changes       press[S]\n";
+         std::cout << "9: To search contact       press[F]\n";
+         std::cout << "0: To exit                 press[Q]\n";
+
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> chose;
@@ -128,6 +128,36 @@ void setup() {
                 break;
 
             case '6':
+            case 'I':
+            case 'i':
+                system("clear");
+                std::cout << "you Ignored all the changes you made in this session.\n";
+                CountResult.Count_changes = 0; // count of changes made during the session
+                CountResult.Count_new_contact = 0; // count of new contacts added during the session
+                CountResult.Count_deleted = 0; // count of deletions made during the session
+                CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
+                CountResult.Count_all_deleted = 0; // count of all deletions 
+                Manage_Data_Tree.Delete_All_Contacts();
+                Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                CountResult.curentCount = CountResult.Count_Data; // Update current count to the original count
+                // Reload original data from file
+                {
+                    std::ifstream file;
+                    file.open("data/myPhoneData.txt", std::ios::in);
+                    std::string line ="";
+                    while(std::getline(file, line)) {   
+                        if(!line.empty()) // Avoid inserting empty lines
+                        {
+                            Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
+                        }
+                    }
+                    file.close();
+                }
+                std::cout << "All changes have been ignored.\n";
+
+                break;
+
+            case '7':
             case 't':
             case 'T':
                 system("clear");
@@ -144,7 +174,7 @@ void setup() {
                 // std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
                 break;
 
-            case '7':
+            case '8':
             case 's':
             case 'S':
             CountResult.Count_saved = CountResult.Count_changes; // count of changes saved to the file
@@ -156,7 +186,7 @@ void setup() {
             std::cout << "All changes have been saved successfully.\n";
             break;
 
-            case '8':
+            case '9':
             case 'f':
             case 'F':
             system("clear");
@@ -214,7 +244,7 @@ void setup() {
             }
             break;
 
-            case '9':
+            case '0':
             case 'q':
             case 'Q':
                 system("clear");

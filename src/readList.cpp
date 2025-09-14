@@ -8,7 +8,7 @@
 
 void readList() {
 
-    if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root) || Manage_Data_Tree.root->data =="")  // Check if the tree is empty
+    if(Manage_Data_Tree.root->data =="")  // Check if the tree is empty
     { 
         system("clear");
         std::cout << "The directory is empty.\n";
