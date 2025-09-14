@@ -182,6 +182,8 @@ void setup() {
                             std::cout << "Name cannot be empty. \nPlease try again.\n";
                             break;
                         }
+                        system("clear");
+                        std::cout << "\n--------------------------------------------\n";
                         Manage_Data_Tree.SearchAndPrintAll(To_search);
                     }
                     break;
@@ -198,7 +200,13 @@ void setup() {
                     }
                     std::string result = Manage_Data_Tree.SearchInsideTree(To_search);
                     system("clear");
+                    std::cout << "\n--------------------------------------------\n";
+                    std::cout << "Search for: " << To_search << std::endl;   
+                    std::cout << "Result found:" << std::endl;     
+                    std::cout << "\n--------------------------------------------\n";
                     std::cout << result << std::endl;
+                    std::cout << "\n--------------------------------------------\n";
+
                 }
                 break;
             }
