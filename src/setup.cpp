@@ -147,6 +147,7 @@ void setup() {
                         CountResult.Count_deleted += CountResult.Count_new_contact + CountResult.Count_Data; // Increment deleted count
                         CountResult.curentCount = 0; // Update current count
                         Manage_Data_Tree.Delete_All_Contacts();
+                        Manage_Data_Tree.root = nullptr;
                         Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
                         system("clear");
                         std::cout <<  "All contacts deleted successfully.\n";
@@ -165,7 +166,7 @@ void setup() {
             case 'I':
             case 'i':
                 system("clear");
-                std::cout << "you Ignored all the changes you made in this session.\n";
+                std::cout << "you've ignored all the changes you made in this session.\n";
                 CountResult.Count_changes = 0; // count of changes made during the session
                 CountResult.Count_new_contact = 0; // count of new contacts added during the session
                 CountResult.Count_deleted = 0; // count of deletions made during the session
