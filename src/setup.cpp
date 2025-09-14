@@ -47,6 +47,8 @@ void setup() {
          chose = ' ';
 
          std::cout << "\n--------------------------------------------\n";
+         std::cout << "\t📞 Phone Directory Menu 📞";
+         std::cout << "\n--------------------------------------------\n";
          std::cout << "1: To add new contact      press[1]\n";
          std::cout << "2: To see all contacts     press[2]\n";
          std::cout << "3: Total contact           press[3]\n";
@@ -151,6 +153,7 @@ void setup() {
             CountResult.Count_all_deleted += CountResult.Count_deleted;; // count of all deletions
             CountResult.Count_deleted = 0; // count of deletions made during the session
             system("clear");
+            Manage_Data_Tree.SaveToFile();
             std::cout << "All changes have been saved successfully.\n";
             break;
 
@@ -159,7 +162,7 @@ void setup() {
             case 'F':
             system("clear");
             std::cout << "Choose search mode:\n";
-            std::cout << "1: Search and print all matching contacts (press [1])\n";
+            std::cout << "1: Search and matching all contacts (press [1])\n";
             std::cout << "2: Search for exact contact (press [2])\n";
             std::cout << "Your choice: ";
             char searchChoice;
@@ -211,50 +214,6 @@ void setup() {
                 break;
             }
             break;
-            // case '0':
-            // case 'M':
-            // case 'm':
-            //     {
-            //         system("clear");
-            //         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
-            //         { 
-            //         system("clear");
-            //             std::cout << "The directory is empty.\n";
-            //             break;
-            //         }
-            //         else{
-            //         system("clear");
-            //         Node* maxNode = Manage_Data_Tree.MaxmumData();
-            //         if(maxNode) {
-            //             std::cout << "Maximum contact (based on lexicographical order): " << maxNode->data << std::endl;
-            //         } else {
-            //             std::cout << "The directory is empty.\n";
-            //         }
-            //         }
-            //     }
-            //     break;
-            // case '9':
-            // case 'N':
-            // case 'n':
-            //     system("clear");
-            //     {
-            //         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Check if the tree is empty{
-            //         { 
-            //         system("clear");
-            //             std::cout << "The directory is empty.\n";
-            //             break;
-            //     }
-            //     else{
-            //         system("clear");
-            //         Node* minNode = Manage_Data_Tree.MiniData();
-            //         if(minNode) {
-            //             std::cout << "Minimum contact (based on lexicographical order): " << minNode->data << std::endl;
-            //         } else {
-            //             std::cout << "The directory is empty.\n";
-            //         }
-            //     }
-            //     }
-            //     break;
 
             case '9':
             case 'q':

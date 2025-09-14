@@ -31,7 +31,7 @@ void addNumber() {
     CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
    
     // Insert into data tree
-        std::string entry_check = entry_name + " | " + entry_num +"\n";
+        std::string entry_check = entry_name + ": 📞 " + entry_num +"\n";
         if(Manage_Data_Tree.root->data ==""){
             Manage_Data_Tree.Delete_Contact("");
         }
