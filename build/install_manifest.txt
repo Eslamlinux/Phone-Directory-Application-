@@ -1,3 +1,0 @@
-/workspace/build/_CPack_Packages/Linux/TGZ/PhoneDirectory-1.0.1-Linux/bin/phone_directory
-/workspace/build/_CPack_Packages/Linux/TGZ/PhoneDirectory-1.0.1-Linux/share/phone_directory/data/myPhoneData.txt
-/workspace/build/_CPack_Packages/Linux/TGZ/PhoneDirectory-1.0.1-Linux/share/applications/phone_directory.desktop
