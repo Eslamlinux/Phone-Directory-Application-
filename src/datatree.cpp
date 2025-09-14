@@ -107,22 +107,53 @@ Node::Node(std::string val){
         Save(root);
     }
     
+    // دالة للبحث وطباعة جميع النتائج المتشابهة
+    void filetree::SearchAndPrintAll(Node* r, const std::string& val, int& foundCount) {
+        if (r == nullptr) {
+            return;
+        }
+        
+        // البحث في الشجرة اليسرى
+        SearchAndPrintAll(r->left, val, foundCount);
+        
+        // فحص العقدة الحالية
+        if (r->data.find(val) != std::string::npos && !r->data.empty()) {
+            std::cout << r->data;
+            foundCount++;
+        }
+        
+        // البحث في الشجرة اليمنى
+        SearchAndPrintAll(r->right, val, foundCount);
+    }
+    
+    void filetree::SearchAndPrintAll(const std::string& val) {
+        int foundCount = 0;
+        std::cout << "البحث عن: " << val << std::endl;
+        std::cout << "النتائج المطابقة:" << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+        
+        SearchAndPrintAll(root, val, foundCount);
+        
+        if (foundCount == 0) {
+            std::cout << "لم يتم العثور على أي نتائج مطابقة لـ: " << val << std::endl;
+        } else {
+            std::cout << "----------------------------------------" << std::endl;
+            std::cout << "تم العثور على " << foundCount << " نتيجة مطابقة." << std::endl;
+        }
+    }
+
+    // الدالة الأصلية للبحث (للتوافق مع الكود الموجود)
     std::string filetree::SearchInsideTree(Node* r, const std::string& val) {
         if (r == nullptr) {
             return val + " Not found"; // Not found
         }
         if (r->data.find(val) != std::string::npos) { // Check if 'val' is a substring of 'r->data'
-            SearchInsideTree(r->left, val); // Continue searching in left subtree for more matches
-            SearchInsideTree(r->right, val); // Continue searching in right subtree for more matches
-            return r->data; // Found
+            return r->data; // Found - return first match
         }
         else if (val < r->data) {
-            SearchInsideTree(r->left, val); // Continue searching in left subtree for more matches
-            
             return SearchInsideTree(r->left, val); // Search in left subtree
         }
         else {
-            SearchInsideTree(r->right, val); // Continue searching in right subtree for more matches
             return SearchInsideTree(r->right, val); // Search in right subtree
         }
     } 

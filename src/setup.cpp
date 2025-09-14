@@ -160,16 +160,18 @@ void setup() {
                 {
                     std::string To_search;
                     system("clear");
-                    std::cout << "Enter the exact name of the contact to search:\n";
+                    std::cout << "أدخل اسم جهة الاتصال للبحث عنه (أو جزء من الاسم):\n";
+                    std::cout << "Enter the contact name to search for (or part of the name):\n";
                     getline(std::cin, To_search);
                     if(To_search.empty()|| To_search.find_first_not_of(' ') == std::string::npos) {
                         system("clear");
-                        std::cout << "Name cannot be empty. \nPlease try again.\n";
+                        std::cout << "الاسم لا يمكن أن يكون فارغاً. حاول مرة أخرى.\n";
+                        std::cout << "Name cannot be empty. Please try again.\n";
                         break;
                     }
-                    std::string result = Manage_Data_Tree.SearchInsideTree(To_search);
                     system("clear");
-                    std::cout << result << std::endl;
+                    // استخدام الدالة الجديدة التي تطبع جميع النتائج المتشابهة
+                    Manage_Data_Tree.SearchAndPrintAll(To_search);
                 }
                 break;
             // case '0':
