@@ -139,7 +139,6 @@ void setup() {
                 std::cout << "Total changes not yet saved to the Data file: " << CountResult.Count_not_saved << std::endl;
                 std::cout << std::endl;
                 std::cout << "Total changes made during the session: " << CountResult.Count_changes << std::endl;
-                std::cout << "Total deletions Numbers made during the session: " << CountResult.Count_all_deleted << std::endl;
                 std::cout << "Total new contacts added during the session: " << CountResult.Count_new_contact << std::endl;
                 std::cout << "Total deletions (all) made during the session: " << CountResult.Count_all_deleted << std::endl;
                 // std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
