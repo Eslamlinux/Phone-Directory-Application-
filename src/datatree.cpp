@@ -112,12 +112,17 @@ Node::Node(std::string val){
             return val + " Not found"; // Not found
         }
         if (r->data.find(val) != std::string::npos) { // Check if 'val' is a substring of 'r->data'
+            SearchInsideTree(r->left, val); // Continue searching in left subtree for more matches
+            SearchInsideTree(r->right, val); // Continue searching in right subtree for more matches
             return r->data; // Found
         }
         else if (val < r->data) {
+            SearchInsideTree(r->left, val); // Continue searching in left subtree for more matches
+            
             return SearchInsideTree(r->left, val); // Search in left subtree
         }
         else {
+            SearchInsideTree(r->right, val); // Continue searching in right subtree for more matches
             return SearchInsideTree(r->right, val); // Search in right subtree
         }
     } 
