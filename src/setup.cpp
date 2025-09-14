@@ -52,8 +52,7 @@ void setup() {
          std::cout << "1: To add new contact      press[1]\n";
          std::cout << "2: To see all contacts     press[2]\n";
          std::cout << "3: Total contact           press[3]\n";
-         std::cout << "4: Delete one contact      press[4]\n";
-         std::cout << "5: To delete all contacts  press[D]\n";
+         std::cout << "4: Delete contacts         press[D]\n";
          std::cout << "6: Ignore the chabges      press[I]\n";
          std::cout << "7: To see Total changes    press[T]\n";
          std::cout << "8: Save last changes       press[S]\n";
@@ -78,6 +77,23 @@ void setup() {
                 std::cout << "Total contacts: " << CountResult.curentCount << std::endl; //
                 break;
             case '4':
+            case 'D':
+            case 'd':
+            system("clear");
+                std::cout << "Choose delete mode:\n";
+                std::cout << "for delete one contact press [1]\n";
+                std::cout << "for delete all contacts press [2]\n";
+                std::cout << "Your choice: ";
+                char deleteChoice;
+                std::cin >> deleteChoice;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if(deleteChoice != '1' && deleteChoice != '2') {
+                    system("clear");
+                    std::cout << "Invalid choice. Returning to main menu.\n";
+                    break;
+                }
+            switch(deleteChoice) {
+            case '1':
                 {
                     std::string User_entry;
                     system("clear");
@@ -97,10 +113,10 @@ void setup() {
                         return;
                     }
                     system("clear");
-                    std::cout << "Are you sure you want to delete all (" << User_entry << ") data? Press 'Y' to continue or 'N' to ignore. \n";
-                    std::cin >> chose;
+                    std::cout << "Are you sure you want to delete (" << User_entry << ") data? Press 'Y' to continue or 'N' to ignore. \n";
+                    std::cin >> deleteChoice;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    if(chose == 'y' || chose == 'Y'){
+                    if(deleteChoice == 'y' || deleteChoice == 'Y'){
 
                         CountResult.Count_changes++; // Decrement changes count
                         CountResult.Count_deleted++; // Increment deleted count
@@ -120,11 +136,29 @@ void setup() {
                     }
                 }
                 break;
-            case '5':
-            case 'D':
-            case 'd':
-                system("clear");
-                deleteAllContacts();
+            case '2':    
+                {
+                    system("clear");
+                    std::cout << "Are you sure you want to delete all contacts? Press 'Y' to continue or 'N' to ignore. \n";
+                    std::cin >> deleteChoice;
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    if(deleteChoice == 'y' || deleteChoice == 'Y'){
+                        CountResult.Count_changes += CountResult.Count_new_contact; // Decrement changes count
+                        CountResult.Count_deleted += CountResult.Count_new_contact + CountResult.Count_Data; // Increment deleted count
+                        CountResult.curentCount = 0; // Update current count
+                        Manage_Data_Tree.Delete_All_Contacts();
+                        Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                        system("clear");
+                        std::cout <<  "All contacts deleted successfully.\n";
+                    }
+                    else{
+                        system("clear");
+                        std::cout << "Operation cancelled. No contacts were deleted.\n";
+                        return;
+                    }
+                }
+                }
+                
                 break;
 
             case '6':
