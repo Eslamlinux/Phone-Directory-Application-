@@ -1,0 +1,2 @@
+5b889607cd24d1254f69e7954bc5287d237a226775d32fed5b862cb55c16ca8e  Phone-Directory-v1.0.1-FIXED.tar.gz
+6d6e544ac49b2ab1465037c152185ed4cd48a3006ce9c12cead392f63b1502e6  Phone-Directory-v1.0.1-FIXED.zip
