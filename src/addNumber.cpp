@@ -9,9 +9,7 @@
 void addNumber() {
     std::string entry_name;
     std::string entry_num;
-    // std::fstream myData;
-            // myData.open("data/myPhoneData.txt", std::ios::app);
-            // myData.close();
+
     system("clear");
     std::cout << Colors.bold_white << Colors.bold_green_bg << "\n🔗 Enter your new contact name:\n" <<Colors.reset;
     std::getline(std::cin, entry_name);
