@@ -8,6 +8,7 @@
 #include "deleteAllContacts.h"
 #include "datatree.h"
 #include <The_counter.h>
+#include "colors.h"
 
 
 long int Count_Data = 0;
@@ -43,21 +44,19 @@ void setup() {
         }
     // End of loading contacts into the binary tree
 
-
          chose = ' ';
-
          std::cout << "\n--------------------------------------------\n";
-         std::cout << "\t📞 Phone Directory Menu 📞";
+         std::cout << Colors.bold_yellow_bg <<Colors.bold_red << "\t📞 Phone Directory Menu 📞" <<Colors.reset;
          std::cout << "\n--------------------------------------------\n";
-         std::cout << "1: To add new contact      press[1]\n";
-         std::cout << "2: To see all contacts     press[2]\n";
-         std::cout << "3: Total contact           press[3]\n";
-         std::cout << "4: Delete contacts         press[D]\n";
-         std::cout << "6: Ignore the chabges      press[I]\n";
-         std::cout << "7: To see Total changes    press[T]\n";
-         std::cout << "8: Save last changes       press[S]\n";
-         std::cout << "9: To search contact       press[F]\n";
-         std::cout << "0: To exit                 press[Q]\n";
+         std::cout << "1: "<< Colors.blue<< "🔗 add new contact         "<< Colors.bold_green<< "press[1]\n"<<Colors.reset;
+         std::cout << "2: "<< Colors.blue<<"🧐 To see all contacts     "<< Colors.bold_green<< "press[2]\n"<<Colors.reset;
+         std::cout << "3: "<< Colors.blue<<"📇 Total contact           "<< Colors.bold_green<< "press[3]\n"<<Colors.reset;
+         std::cout << "4: "<< Colors.blue<<"🗑️  Delete contacts         "<< Colors.bold_green<< "press[D]\n"<<Colors.reset;
+         std::cout << "6: "<< Colors.blue<<"🧹 ignore the changes      "<< Colors.bold_green<< "press[I]\n"<<Colors.reset;
+         std::cout << "7: "<< Colors.blue<<"📊 To see Total changes    "<< Colors.bold_green<< "press[T]\n"<<Colors.reset;
+         std::cout << "8: "<< Colors.blue<<"💾 Save last changes       "<< Colors.bold_green<< "press[S]\n"<<Colors.reset;
+         std::cout << "9: "<< Colors.blue<<"🔍 To search contact       "<< Colors.bold_green<< "press[F]\n"<<Colors.reset;
+         std::cout << "0: "<< Colors.blue<<"⏻  To exit                 "<< Colors.bold_green<< "press[Q]\n"<<Colors.reset;
 
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";

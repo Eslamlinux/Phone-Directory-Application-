@@ -1,6 +1,7 @@
 #include "addNumber.h"
 #include "datatree.h"
 #include "The_counter.h"
+#include "colors.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,7 +11,7 @@ void addNumber() {
     std::string entry_num;
     std::fstream myData;
     system("clear");
-    std::cout << "Enter your new contact name:\n";
+    std::cout << Colors.bold_green << Colors.bold_white_bg << "\n🔗 Enter your new contact name:\n" <<Colors.reset;
     std::getline(std::cin, entry_name);
     if(entry_name.empty()|| entry_name.find_first_not_of(' ') == std::string::npos) {
         system("clear");
@@ -18,7 +19,7 @@ void addNumber() {
         return;
     }
 
-    std::cout << "Enter your new contact number \n(must be 18 digits or less):\n";
+    std::cout << Colors.bold_green << Colors.bold_white_bg << "\n🔗 Enter your new contact number \n(must be 18 digits or less):\n" << Colors.reset;
     std::cin >> entry_num;
     if (entry_num.size() > 18) {
         std::cout << "You entered more than 18 digits. \nPlease try again.\n";

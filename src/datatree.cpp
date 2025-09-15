@@ -47,6 +47,7 @@ Node::Node(std::string val){
             return;
         }
         else{
+        std::cout << "👉 ";
             std::cout << r->data << " ";
             print_preorder(r->left);
             print_preorder(r->right);
