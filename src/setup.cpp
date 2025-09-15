@@ -17,7 +17,7 @@ int safebreak = 1;
 void setup() {
     char chose = ' ';
     system("clear");
-    std::cout << "Welcome to your phone directory book";
+    std::cout <<Colors.bold_green_bg << Colors.bold_white<<"    Welcome to your phone directory book" << Colors.reset;
     while (chose != 'q' && chose != 'Q') {
 
          if(safebreak > 100) {
@@ -31,7 +31,7 @@ void setup() {
         if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
         {
             std::ifstream file;
-            file.open("data/myPhoneData.txt", std::ios::in);
+            file.open("data/myPhoneData.txt", std::ios::app);
             std::string line ="";
             while(std::getline(file, line)) {   
                 if(!line.empty()) // Avoid inserting empty lines
@@ -49,25 +49,15 @@ void setup() {
          std::cout << "\n--------------------------------------------\n";
          std::cout << Colors.bold_yellow_bg <<Colors.bold_red << "\t📞 Phone Directory Menu 📞" <<Colors.reset;
          std::cout << "\n--------------------------------------------\n";
-         std::cout << Colors.bold_white_bg;
          std::cout << "1: "<< Colors.blue<< "🔗 add new contact         "<< Colors.bold_green<< "press[1]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "2: "<< Colors.blue<<"🧐 To see all contacts     "<< Colors.bold_green<< "press[2]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "3: "<< Colors.blue<<"📇 Total contact           "<< Colors.bold_green<< "press[3]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "4: "<< Colors.blue<<"🗑️  Delete contacts         "<< Colors.bold_green<< "press[D]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "5: "<< Colors.blue<<"📤  Export Data            "<< Colors.bold_green<< "press[E]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "6: "<< Colors.blue<<"🧹 ignore the changes      "<< Colors.bold_green<< "press[I]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "7: "<< Colors.blue<<"📊 To see Total changes    "<< Colors.bold_green<< "press[T]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "8: "<< Colors.blue<<"💾 Save last changes       "<< Colors.bold_green<< "press[S]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "9: "<< Colors.blue<<"🔍 To search contact       "<< Colors.bold_green<< "press[F]\n"<<Colors.reset;
-         std::cout << Colors.bold_white_bg;
          std::cout << "0: "<< Colors.blue<<"⏻  To exit                 "<< Colors.bold_green<< "press[Q]"<<Colors.reset <<std::endl;
          std::cout << Colors.reset;
 
@@ -92,8 +82,8 @@ void setup() {
             case 'D':
             case 'd':
             system("clear");
-                std::cout << Colors.bold_red << Colors.bold_green_bg << "Choose delete mode:\n";
-                std::cout << Colors.green << "for delete one contact press [1]\n";
+                std::cout << Colors.bold_red << Colors.bold_green_bg << "Choose delete mode:\n" << Colors.reset;
+                std::cout << Colors.red << "for delete one contact press [1]\n";
                 std::cout << "for delete all contacts press [2]\n" << Colors.reset;
                 std::cout << "Your choice: ";
                 char deleteChoice;
@@ -110,7 +100,7 @@ void setup() {
                     std::string User_entry;
                     system("clear");
                     std::cout << Colors.bold_red << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n";
-                    std::cout << "|*| *** Be careful with that. ***                             |*|\n";
+                    std::cout << "|*| "<< Colors.underline << "*** Be careful with that. ***"<< Colors.reset << Colors.bold_red <<"                             |*|\n";
                     std::cout << "|*| " << Colors.green << "You must add the contact name in the same way as before,  " << Colors.red << "|*|\n" ;
                     std::cout << "|*| " << Colors.green << "because if there are other names that start with the      " << Colors.red << "|*|\n";
                     std::cout << "|*| " << Colors.green << "same name that you enter, you will delete them all.       " << Colors.red << "|*|\n";
@@ -200,7 +190,7 @@ void setup() {
                     }
                     file.close();
                 }
-                std::cout << "All changes have been ignored.\n";
+                std::cout << Colors.bold_red << "All changes have been ignored.\n" <<Colors.reset;
 
                 break;
 
@@ -211,13 +201,13 @@ void setup() {
                 CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
                 CountResult.Count_not_saved = CountResult.Count_deleted + CountResult.Count_new_contact;
                 CountResult.Count_all_deleted =  CountResult.Count_all_deleted + CountResult.Count_deleted;
-                std::cout << "Total contacts loaded from Data during start the program: " << CountResult.Count_Data << std::endl;
-                std::cout << "Total contacts currently in the directory after changes: " << CountResult.curentCount << std::endl;
-                std::cout << "Total changes not yet saved to the Data file: " << CountResult.Count_not_saved << std::endl;
+                std::cout << Colors.bold_blue << "Total contacts loaded from Data during start the program: "<< Colors.bold_red  << CountResult.Count_Data << std::endl;
+                std::cout << Colors.bold_blue << "Total contacts currently in the directory after changes: " << Colors.bold_red << CountResult.curentCount << std::endl;
+                std::cout << Colors.bold_blue << "Total changes not yet saved to the Data file: " << Colors.bold_red << CountResult.Count_not_saved << std::endl;
                 std::cout << std::endl;
-                std::cout << "Total changes made during the session: " << CountResult.Count_changes << std::endl;
-                std::cout << "Total new contacts added during the session: " << CountResult.Count_new_contact << std::endl;
-                std::cout << "Total deletions (all) made during the session: " << CountResult.Count_all_deleted << std::endl;
+                std::cout << Colors.bold_blue << "Total changes made during the session: " << Colors.bold_red << CountResult.Count_changes << std::endl;
+                std::cout << Colors.bold_blue << "Total new contacts added during the session: "<< Colors.bold_red << CountResult.Count_new_contact << std::endl;
+                std::cout << Colors.bold_blue << "Total deletions (all) made during the session: " << Colors.bold_red << CountResult.Count_all_deleted << std::endl;
                 // std::cout << "Total changes saved to the file: " << CountResult.Count_saved << std::endl;
                 break;
 
@@ -230,23 +220,23 @@ void setup() {
             CountResult.Count_deleted = 0; // count of deletions made during the session
             system("clear");
             Manage_Data_Tree.SaveToFile();
-            std::cout << "All changes have been saved successfully.\n";
+            std::cout << Colors.bold_red << Colors.bold_green_bg <<  "All changes have been saved successfully.\n" << Colors.reset;
             break;
 
             case '9':
             case 'f':
             case 'F':
             system("clear");
-            std::cout << "Choose search mode:\n";
-            std::cout << "1: Search and matching all contacts (press [1])\n";
-            std::cout << "2: Search for exact contact (press [2])\n";
+            std::cout << Colors.bold_red << Colors.bold_green_bg <<  "Choose search mode:\n" << Colors.reset;
+            std::cout << Colors.bold_blue << "1: Search and matching all contacts (press [1])\n"<< Colors.reset;
+            std::cout << Colors.bold_blue << "2: Search for exact contact (press [2])\n";
             std::cout << "Your choice: ";
             char searchChoice;
             std::cin >> searchChoice;
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             if(searchChoice != '1' && searchChoice != '2') {
                 system("clear");
-                std::cout << "Invalid choice. Returning to main menu.\n";
+                std::cout << Colors.bold_red << "Invalid choice. Returning to main menu.\n"<< Colors.reset;
                 break;
             }
             switch(searchChoice) {
@@ -254,11 +244,11 @@ void setup() {
                     {
                         std::string To_search;
                         system("clear");
-                        std::cout << "Enter the name or part of the name to search:\n";
+                        std::cout << Colors.bold_red << Colors.bold_green_bg << "Enter the name or part of the name to search:\n"<< Colors.reset;
                         getline(std::cin, To_search);
                         if(To_search.empty()|| To_search.find_first_not_of(' ') == std::string::npos) {
                             system("clear");
-                            std::cout << "Name cannot be empty. \nPlease try again.\n";
+                            std::cout << Colors.bold_red << "Name cannot be empty. \nPlease try again.\n"<< Colors.reset;
                             break;
                         }
                         system("clear");
@@ -270,18 +260,18 @@ void setup() {
                 {
                     std::string To_search;
                     system("clear");
-                    std::cout << "Enter the exact name of the contact to search:\n";
+                    std::cout << Colors.bold_red << Colors.bold_green_bg << "Enter the exact name of the contact to search:\n"<< Colors.reset;
                     getline(std::cin, To_search);
                     if(To_search.empty()|| To_search.find_first_not_of(' ') == std::string::npos) {
                         system("clear");
-                        std::cout << "Name cannot be empty. \nPlease try again.\n";
+                        std::cout << Colors.bold_red << "Name cannot be empty. \nPlease try again.\n"<< Colors.reset;
                         break;
                     }
                     std::string result = Manage_Data_Tree.SearchInsideTree(To_search);
                     system("clear");
                     std::cout << "\n--------------------------------------------\n";
-                    std::cout << "Search for: " << To_search << std::endl;   
-                    std::cout << "Result found:" << std::endl;     
+                    std::cout << Colors.bold_blue<< "Search for: " << To_search << std::endl;   
+                    std::cout << "Result found:" << Colors.reset << std::endl;     
                     std::cout << "\n--------------------------------------------\n";
                     std::cout << result << std::endl;
                     std::cout << "\n--------------------------------------------\n";
@@ -296,28 +286,28 @@ void setup() {
             case 'Q':
                 system("clear");
                 
-                std::cout << "Do you want save the changes ? 'Y' for save 'N' for Ignore it\n" ;
+                std::cout << Colors.bold_red << Colors.bold_green_bg <<  "Do you want save the changes ? "<< Colors.bold_white << Colors.bold_green_bg << "'Y' for save 'N' for Ignore it\n" << Colors.reset ;
                 std::cin >> chose;
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 if(chose == 'y' || chose == 'Y'){
-                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << Colors.bold_red << Colors.bold_green_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| All your changes are saved :)                           |*| \n";
                 std::cout << "|*| Goodbye !                                               |*| \n";
-                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" << Colors.reset;
                 Manage_Data_Tree.SaveToFile();
                 }
                 else if(chose == 'n' || chose == 'N'){
                 {
-                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << Colors.bold_red << Colors.bold_red_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| All your changes are ignored :(                         |*| \n";
                 std::cout << "|*| Goodbye !                                               |*| \n";
-                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" <<Colors.reset ;
                 }
                 }
                 else{
-                    std::cout << "Invalid choice. Returning to main menu.\n";
+                    std::cout << Colors.bold_red <<  "Invalid choice. Returning to main menu.\n";
                     break;
                 }
                 return;
@@ -327,7 +317,7 @@ void setup() {
                 To_Export();
                 break;
             default:
-                std::cout << "Invalid choice. Please try again.\n";
+                std::cout << Colors.bold_red <<   "Invalid choice. Please try again.\n";
                 break;
 
         }

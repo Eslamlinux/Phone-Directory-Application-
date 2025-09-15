@@ -1,5 +1,6 @@
 #include "readList.h"
 #include "datatree.h"
+#include "colors.h"
 #include <The_counter.h>
 #include <iostream>
 #include <fstream>
@@ -17,12 +18,13 @@ void readList() {
     { 
                 system("clear");
         CountResult.curentCount = (CountResult.Count_Data + CountResult.Count_new_contact) - CountResult.Count_deleted; // Update current count 
-        std::cout << "-------- P.H.O.N.E  C.O.N.T.A.C.T.S --------\n";
-        std::cout << "--------N-a-m-e----------N-u-m-b-e-r--------\n";
-        std::cout << "--------------------------------------------\n";        
+        std::cout << Colors.light_white<< Colors.bold_blue_bg<<"-------- P.H.O.N.E  C.O.N.T.A.C.T.S --------\n";
+        std::cout << "--------N-a-m-e----------N-u-m-b-e-r--------\n"<< Colors.reset;
+        std::cout << Colors.light_white  << Colors.bold_blue_bg << "--------------------------------------------\n\n" << Colors.reset;        
         Manage_Data_Tree.print_preorder(Manage_Data_Tree.root);
-        std::cout << "\n----------------------------------------------\n";
-        std::cout << "Total contacts currently in the directory: " << CountResult.curentCount << std::endl;
-        std::cout << "----------------------------------------------\n";
+        std::cout << std::endl;
+        std::cout  << Colors.red << "----------------------------------------------\n";
+        std::cout << Colors.bold_blue_bg << "Total contacts currently in the directory: " << CountResult.curentCount << " " << Colors.reset<< std::endl;
+        std::cout << Colors.red << "----------------------------------------------\n" << Colors.reset;
     }
 }
