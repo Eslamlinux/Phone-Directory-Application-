@@ -35,5 +35,7 @@ class filetree{
     void print_preorder(Node* r);
     void print_inorder(Node* r);
     void print_postorder(Node* r);
+    void Export_Tree(Node* r, std::string locaution);
+
 };
 extern filetree Manage_Data_Tree;

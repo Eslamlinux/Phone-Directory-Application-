@@ -251,3 +251,18 @@ Node::Node(std::string val){
         return root;
     }
 
+void filetree::Export_Tree(Node* r, std::string location){
+    
+    if(Manage_Data_Tree.isEmpty(r)){
+        return;
+    }
+        std::ofstream file_export;
+        file_export.open(location, std::ios::app);
+
+        if(file_export.is_open()) {
+            file_export << r->data;
+            file_export.close();
+            filetree::Export_Tree(r->left,location);
+            filetree::Export_Tree(r->right,location);
+        }
+}

@@ -2,13 +2,14 @@
 #include <fstream>
 #include <string>
 #include <limits> 
+#include <The_counter.h>
+#include "colors.h"
 #include "setup.h"
 #include "addNumber.h"
 #include "readList.h"
 #include "deleteAllContacts.h"
 #include "datatree.h"
-#include <The_counter.h>
-#include "colors.h"
+#include "exportdata.h"
 
 
 long int Count_Data = 0;
@@ -52,6 +53,7 @@ void setup() {
          std::cout << "2: "<< Colors.blue<<"🧐 To see all contacts     "<< Colors.bold_green<< "press[2]\n"<<Colors.reset;
          std::cout << "3: "<< Colors.blue<<"📇 Total contact           "<< Colors.bold_green<< "press[3]\n"<<Colors.reset;
          std::cout << "4: "<< Colors.blue<<"🗑️  Delete contacts         "<< Colors.bold_green<< "press[D]\n"<<Colors.reset;
+         std::cout << "5: "<< Colors.blue<<"📤  Export Data            "<< Colors.bold_green<< "press[E]\n"<<Colors.reset;
          std::cout << "6: "<< Colors.blue<<"🧹 ignore the changes      "<< Colors.bold_green<< "press[I]\n"<<Colors.reset;
          std::cout << "7: "<< Colors.blue<<"📊 To see Total changes    "<< Colors.bold_green<< "press[T]\n"<<Colors.reset;
          std::cout << "8: "<< Colors.blue<<"💾 Save last changes       "<< Colors.bold_green<< "press[S]\n"<<Colors.reset;
@@ -308,9 +310,15 @@ void setup() {
                     break;
                 }
                 return;
+                case '5':
+                case 'E':
+                case 'e':
+                To_Export();
+                break;
             default:
                 std::cout << "Invalid choice. Please try again.\n";
                 break;
+
         }
     }
 }
