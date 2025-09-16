@@ -29,6 +29,7 @@ void addNumber() {
 
     CountResult.Count_changes++; // Increment changes count
     CountResult.Count_new_contact++; // Increment new contact count
+    CountResult.Count_not_saved++;
     CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
    
     // Insert into data tree

@@ -122,6 +122,7 @@ void setup() {
 
                         CountResult.Count_changes++; // Decrement changes count
                         CountResult.Count_deleted++; // Increment deleted count
+                        CountResult.Count_not_saved++;
                         CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
 
 
@@ -175,7 +176,7 @@ void setup() {
                 CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
                 CountResult.Count_all_deleted = 0; // count of all deletions 
                 Manage_Data_Tree.Delete_All_Contacts();
-                Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
+                // Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
                 CountResult.curentCount = CountResult.Count_Data; // Update current count to the original count
                 // Reload original data from file
                 {
@@ -199,10 +200,11 @@ void setup() {
             case 'T':
                 system("clear");
                 CountResult.curentCount = (CountResult.Count_Data - CountResult.Count_deleted) + CountResult.Count_new_contact; // Update current count
-                CountResult.Count_not_saved = CountResult.Count_deleted + CountResult.Count_new_contact;
+                // CountResult.Count_not_saved = CountResult.Count_not_saved;
                 CountResult.Count_all_deleted =  CountResult.Count_all_deleted + CountResult.Count_deleted;
-                std::cout << Colors.bold_blue << "Total contacts loaded from Data during start the program: "<< Colors.bold_red  << CountResult.Count_Data << std::endl;
+                std::cout << Colors.bold_blue << "Total contacts loaded from Data during start the program or after save the changes: "<< Colors.bold_red  << CountResult.Count_Data << std::endl;
                 std::cout << Colors.bold_blue << "Total contacts currently in the directory after changes: " << Colors.bold_red << CountResult.curentCount << std::endl;
+                // std::cout << Colors.bold_blue << "Total changes not yet saved to the Data file: " << Colors.bold_red << CountResult.Count_not_saved << std::endl;
                 std::cout << Colors.bold_blue << "Total changes not yet saved to the Data file: " << Colors.bold_red << CountResult.Count_not_saved << std::endl;
                 std::cout << std::endl;
                 std::cout << Colors.bold_blue << "Total changes made during the session: " << Colors.bold_red << CountResult.Count_changes << std::endl;
@@ -215,11 +217,11 @@ void setup() {
             case 's':
             case 'S':
             CountResult.Count_saved = CountResult.Count_changes; // count of changes saved to the file
-            CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
             CountResult.Count_all_deleted += CountResult.Count_deleted;; // count of all deletions
             CountResult.Count_deleted = 0; // count of deletions made during the session
             system("clear");
             Manage_Data_Tree.SaveToFile();
+            CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
             std::cout << Colors.bold_red << Colors.bold_green_bg <<  "All changes have been saved successfully.\n" << Colors.reset;
             break;
 

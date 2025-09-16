@@ -17,6 +17,7 @@ void deleteAllContacts() {
         CountResult.Count_changes++; // increment changes count
         CountResult.Count_deleted += CountResult.Count_all_deleted; // Increment deleted count
         CountResult.curentCount = 0; // Update current count to zero
+        CountResult.Count_not_saved++;
         system("clear");
         std::cout << "All contacts have been deleted.\n";
     } else {
