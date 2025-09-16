@@ -1,14 +1,15 @@
-#include "deleteAllContacts.h"
+#include "header/deleteAllContacts.h"
+#include "header/datatree.h"
+#include "header/colors.h"
+#include <header/The_counter.h>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "datatree.h"
-#include <The_counter.h>
 
 void deleteAllContacts() {
     char chose;
     system("clear");
-    std::cout << "Are you sure you want to delete all your contacts? \nIf so, press Y or N to ignore.\n";
+    std::cout <<Colors.bold_green_bg << Colors.white << "Are you sure you want to delete all your contacts? \nIf so, press Y or N to ignore.\n" <<Colors.reset;
     std::cin >> chose;
     if (chose == 'y' || chose == 'Y') {
         CountResult.Count_all_deleted = CountResult.curentCount ; // all deleted count

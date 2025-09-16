@@ -1,7 +1,7 @@
-#include "readList.h"
-#include "datatree.h"
-#include "colors.h"
-#include <The_counter.h>
+#include "header/readList.h"
+#include "header/datatree.h"
+#include "header/colors.h"
+#include <header/The_counter.h>
 #include <iostream>
 #include <fstream>
 #include <string>

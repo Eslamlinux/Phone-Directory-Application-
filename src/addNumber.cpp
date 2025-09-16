@@ -1,7 +1,7 @@
-#include "addNumber.h"
-#include "datatree.h"
-#include "The_counter.h"
-#include "colors.h"
+#include "header/addNumber.h"
+#include "header/datatree.h"
+#include "header/The_counter.h"
+#include "header/colors.h"
 #include <iostream>
 #include <fstream>
 #include <string>

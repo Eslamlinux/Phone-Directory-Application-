@@ -1,4 +1,4 @@
-#include "colors.h"
+#include "header/colors.h"
 
 color_style Colors = {
     "\033[31m", // red

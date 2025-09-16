@@ -1,6 +1,6 @@
-#include "exportdata.h"
-#include "datatree.h"
-#include "colors.h"
+#include "header/exportdata.h"
+#include "header/datatree.h"
+#include "header/colors.h"
 #include <fstream>
 #include <limits>
 

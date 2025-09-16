@@ -1,4 +1,4 @@
-#include "src/setup.h"
+#include "src/header/setup.h"
 
 int main(){
     setup();
