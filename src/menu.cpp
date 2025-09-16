@@ -23,6 +23,7 @@
          std::cout << "--------------------------------------------\n";
          std::cout << "Your choice: ";
          std::cin >> User_Chose;
+         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         
          return User_Chose;
         }

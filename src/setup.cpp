@@ -47,7 +47,6 @@ void setup() {
     // End of loading contacts into the binary tree
 
         chose = Start_Menu(chose);
-         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         switch (chose) {
             case '1':
