@@ -1,4 +1,4 @@
-#include <header/The_counter.h>
+#include "header/The_counter.h"
 #include "header/colors.h"
 #include "header/setup.h"
 #include "header/addNumber.h"
@@ -7,14 +7,16 @@
 #include "header/datatree.h"
 #include "header/exportdata.h"
 #include "header/menu.h"
+#include "header/make_read_data.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <limits> 
 #include <cstdlib>
 
-long int Count_Data = 0;
 int safebreak = 1;
+
+
 void setup() {
     char chose = ' ';
     system("clear");
@@ -29,23 +31,8 @@ void setup() {
          }
          safebreak++;
 
-        if(Manage_Data_Tree.isEmpty(Manage_Data_Tree.root))  // Load existing contacts into the binary tree
-        {
-            std::ifstream file;
-            file.open("data/myPhoneData.txt", std::ios::app);
-            std::string line ="";
-            while(std::getline(file, line)) {   
-                if(!line.empty()) // Avoid inserting empty lines
-                {
-                    Manage_Data_Tree.To_insert(line + "\n"); // Insert each line into the binary tree
-                    Count_Data++;
-                }
-                CountResult.Count_Data = Count_Data;
-            }
-        file.close();
-        }
-    // End of loading contacts into the binary tree
-
+        Load_Creat_Data();
+         
         chose = Start_Menu(chose);
 
         switch (chose) {
