@@ -11,7 +11,7 @@
 #include <fstream>
 #include <string>
 #include <limits> 
-
+#include <cstdlib>
 
 long int Count_Data = 0;
 int safebreak = 1;
@@ -298,7 +298,39 @@ void setup() {
                 case '5':
                 case 'E':
                 case 'e':
-                To_Export();
+                system("clear");
+                std::cout<< Colors.bold_blue << "If you want to Export Data prees [E] & to import Data prees [I] \n";
+                std::cin >> chose;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if(chose == 'e' || chose == 'E'){
+                    To_Export();
+                }
+                else if(chose == 'i' || chose == 'I'){
+                    system("clear");
+                    std::cout << "this choice will delete old data and replac it with one you enter,,, \nare you sure enter 'Y' for yes and 'N' fo no \n";
+                    std::cin>>chose;
+                    if(chose == 'y' || chose == 'Y'){
+                    system("clear");
+                        //still need code here for inserting data file
+                        std::cout << "comming soon\n";
+
+                    }
+                    else if(chose == 'n' || chose == 'N'){
+                    system("clear");
+                        std::cout << "great you chose to Ignore, no thing is change\n";
+                        break;
+                    }
+                    else{
+                    system("clear");
+                        std::cout << "you enter wrong choice\n";
+                        break;
+                    }
+                }
+                else{
+                    system("clear");
+                    std::cout << "you enter wrong choice\n";
+                    break;
+                }
                 break;
             default:
                 std::cout << Colors.bold_red <<   "Invalid choice. Please try again.\n";
