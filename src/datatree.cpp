@@ -1,4 +1,6 @@
 #include "header/datatree.h"
+#include "header/Paths.h"
+#include "header/make_read_data.h"
 #include <iostream>
 #include <fstream>
 
@@ -86,7 +88,8 @@ Node::Node(std::string val){
         }
         
         std::ofstream file;
-        file.open("data/myPhoneData.txt", std::ios::app);
+        std::string dataplace = Path();
+        file.open(dataplace, std::ios::app);
 
         if(file.is_open()) {
             file << r->data;
@@ -98,8 +101,9 @@ Node::Node(std::string val){
     }
      void filetree::SaveToFile(){
         // Clear the file first
+        std::string dataplace = Path();
         std::ofstream file;
-        file.open("data/myPhoneData.txt", std::ios::trunc);
+        file.open(dataplace, std::ios::trunc);
         if(file.is_open()) {
             file.close();
         }

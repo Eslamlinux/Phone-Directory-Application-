@@ -6,6 +6,7 @@
 #include "header/deleteAllContacts.h"
 #include "header/datatree.h"
 #include "header/exportdata.h"
+#include "header/importdatafile.h"
 #include "header/menu.h"
 #include "header/make_read_data.h"
 #include <iostream>
@@ -296,9 +297,10 @@ void setup() {
                     system("clear");
                     std::cout << "this choice will delete old data and replac it with one you enter,,, \nare you sure enter 'Y' for yes and 'N' fo no \n";
                     std::cin>>chose;
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
                     system("clear");
-                        //still need code here for inserting data file
+                        Import_Replace_data();
                         std::cout << "comming soon\n";
 
                     }
