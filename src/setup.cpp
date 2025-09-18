@@ -301,7 +301,7 @@ void setup() {
                     if(chose == 'y' || chose == 'Y'){
                     system("clear");
                         Import_Replace_data();
-                        std::cout << "comming soon\n";
+                        std::cout << "Every thing is changed\n";
 
                     }
                     else if(chose == 'n' || chose == 'N'){
