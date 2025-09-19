@@ -267,7 +267,7 @@ void setup() {
                 std::cin >> chose;
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 if(chose == 'y' || chose == 'Y'){
-                std::cout << Colors.bold_red << Colors.bold_green_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << Colors.bold_white << Colors.bold_green_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| All your changes are saved :)                           |*| \n";
                 std::cout << "|*| Goodbye !                                               |*| \n";
@@ -276,7 +276,7 @@ void setup() {
                 }
                 else if(chose == 'n' || chose == 'N'){
                 {
-                std::cout << Colors.bold_red << Colors.bold_red_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
+                std::cout << Colors.bold_white << Colors.bold_red_bg <<  "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/\n" ;
                 std::cout << "|*| Thank you for using our Phone Directory Console App.    |*|\n";   
                 std::cout << "|*| All your changes are ignored :(                         |*| \n";
                 std::cout << "|*| Goodbye !                                               |*| \n";
@@ -300,34 +300,36 @@ void setup() {
                 }
                 else if(chose == 'i' || chose == 'I'){
                     system("clear");
-                    std::cout << "this choice will delete old data and replac it with one you enter,,, \nare you sure enter 'Y' for yes and 'N' fo no \n";
+                    std::cout << Colors.bold_red << Colors.bold_white_bg << "this choice will delete old data and replac it with one you enter,,, \nare you sure enter 'Y' for yes and 'N' fo no \n" << Colors.reset;
                     std::cin>>chose;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     if(chose == 'y' || chose == 'Y'){
                     system("clear");
                         Import_Replace_data();
-                        std::cout << "Every thing is changed\n";
+                    system("clear");
+                        std::cout << Colors.bold_blue << "Now you can go to check is Every thing changed\n"  << Colors.reset;
 
                     }
                     else if(chose == 'n' || chose == 'N'){
                     system("clear");
-                        std::cout << "great you chose to Ignore, no thing is change\n";
+                        std::cout <<  Colors.bold_green << "great you chose to Ignore, no thing is change\n" << Colors.reset;
                         break;
                     }
                     else{
                     system("clear");
-                        std::cout << "you enter wrong choice\n";
+                        std::cout << Colors.bold_red << "you enter wrong choice\n" << Colors.reset;
                         break;
                     }
                 }
                 else{
                     system("clear");
-                    std::cout << "you enter wrong choice\n";
+                    std::cout << Colors.bold_red << "you enter wrong choice\n" << Colors.reset;
                     break;
                 }
                 break;
             default:
-                std::cout << Colors.bold_red <<   "Invalid choice. Please try again.\n";
+                    system("clear");
+                std::cout << Colors.bold_red <<   "Invalid choice. Please try again.\n"<< Colors.reset;
                 break;
 
         }

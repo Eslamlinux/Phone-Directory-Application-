@@ -1,4 +1,5 @@
 #include "header/Paths.h"
+#include "header/colors.h"
 #include <fstream>
 #include <iostream>
 
@@ -12,7 +13,7 @@ void Path(std::string ChangePath){
         File_Path.close();
     }
     else {
-        std::cerr << "Error: Could not open the file for writing." << std::endl;
+        std::cerr << Colors.bold_red << "Error: Could not open the file for writing." << std::endl;
     }
 }
 std::string Path(){
@@ -26,7 +27,7 @@ std::string Path(){
         File_Path_Reading.close();
     } 
     else {
-        std::cerr << "Error: Could not open the file for reading." << std::endl;
+        std::cerr << Colors.bold_red << "Error: Could not open the file for reading." << std::endl;
     }
     return PathF;
 }
