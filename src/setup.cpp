@@ -9,6 +9,7 @@
 #include "header/importdatafile.h"
 #include "header/menu.h"
 #include "header/make_read_data.h"
+#include "header/Paths.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -138,20 +139,24 @@ void setup() {
             case '6':
             case 'I':
             case 'i':
+            {
                 system("clear");
-                std::cout << Colors.bold_green << "you've ignored all the changes you made in this session.\n"<< Colors.reset;
                 CountResult.Count_changes = 0; // count of changes made during the session
                 CountResult.Count_new_contact = 0; // count of new contacts added during the session
                 CountResult.Count_deleted = 0; // count of deletions made during the session
                 CountResult.Count_not_saved = 0; // count of changes not yet saved to the file
                 CountResult.Count_all_deleted = 0; // count of all deletions 
                 Manage_Data_Tree.Delete_All_Contacts();
+                Manage_Data_Tree.root = nullptr;
                 // Manage_Data_Tree.To_insert(""); // To handle the case when the tree becomes empty
                 CountResult.curentCount = CountResult.Count_Data; // Update current count to the original count
                 // Reload original data from file
-                {
+                
+                std::cout << Colors.bold_green << "you've ignored all the changes you made in this session.\n"<< Colors.reset;
                     std::ifstream file;
-                    file.open("data/myPhoneData.txt", std::ios::in);
+                    std::string dataplace;
+                    dataplace = Path();
+                    file.open(dataplace, std::ios::in);
                     std::string line ="";
                     while(std::getline(file, line)) {   
                         if(!line.empty()) // Avoid inserting empty lines
@@ -160,9 +165,9 @@ void setup() {
                         }
                     }
                     file.close();
-                }
+                
                 std::cout << Colors.bold_red << "All changes have been ignored.\n" <<Colors.reset;
-
+                }
                 break;
 
             case '7':

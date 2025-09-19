@@ -88,7 +88,8 @@ Node::Node(std::string val){
         }
         
         std::ofstream file;
-        std::string dataplace = Path();
+        std::string dataplace;
+        dataplace = Path();
         file.open(dataplace, std::ios::app);
 
         if(file.is_open()) {
@@ -101,7 +102,8 @@ Node::Node(std::string val){
     }
      void filetree::SaveToFile(){
         // Clear the file first
-        std::string dataplace = Path();
+        std::string dataplace;
+        dataplace = Path();
         std::ofstream file;
         file.open(dataplace, std::ios::trunc);
         if(file.is_open()) {
