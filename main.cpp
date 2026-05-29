@@ -1,7 +1,7 @@
 #include "src/header/setup.h"
 
 int main(){
-    //start function
+    //start functions and all program
     setup();
 
 
