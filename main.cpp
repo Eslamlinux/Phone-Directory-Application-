@@ -1,7 +1,9 @@
 #include "src/header/setup.h"
 
 int main(){
-    //start functions and all program
+    
+    //setup() start functions and all program
+    
     setup();
 
 
