@@ -2,7 +2,7 @@
 
 int main(){
     
-    //setup() start functions and all program
+    //setup() func start functions and all program
     
     setup();
 
